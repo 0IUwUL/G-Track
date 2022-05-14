@@ -1,0 +1,21 @@
+
+/*for Landing Page*/
+.status{
+    background-color: #F6F6F6;
+    color: #628EFF;
+    height: 29vh;
+    width: 100%;
+}
+
+.list{
+    height: 85vh;
+    width: 100%;
+    background-color: #F6F6F6;
+    color: #628EFF;
+}
+.categories{
+    width: 70wh;
+    background-color: #F6F6F6;
+    color: #628EFF;
+    height: 40vh;
+}
