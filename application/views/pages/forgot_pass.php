@@ -10,7 +10,7 @@
                     <input type="text" class="form-control" placeholder="Enter Email" name="name">
                 </div>
                 
-                <div class="mb-3">
+                <div class="mb-3 input-group">
                     <input type="text" class="form-control" placeholder="Enter Verification" name="verification">
                     <button type="submit" class="btn btn-custom" name="verify" style="color: #F6F6F6">Send Verification</button>
                 </div>
