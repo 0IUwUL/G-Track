@@ -54,3 +54,15 @@
 .title{
     color: #628EFF;
 }
+/* For Sign Up */
+.mb-3 i{
+    font-size: 30px;
+    padding-left: 20px;
+}
+.mb-3 i:first-child{
+    margin-left: -1.5%;
+}
+.mb-3 p{
+    text-align: left;
+    padding-left: 5px;
+}
