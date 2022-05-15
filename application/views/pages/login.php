@@ -16,7 +16,7 @@
                 <div class="mb-3">
                     <button type="submit" class="btn btn-custom" name="login" style="color: #F6F6F6">Login</button>
                 </div>
-                <div class="row justify-content-center h5 mt-3">
+                <div class=" h5 mt-3">
                     Not A User? <a href="<?php echo site_url("")?>"style="color: #FB0000">Sign Up</a>
                 </div>
                 <div class="row justify-content-center h5 mt-3">

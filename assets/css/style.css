@@ -20,6 +20,7 @@
     height: 40vh;
 }
 /* for LOGIN */
+/*for Forgot Password*/
 .box{
     background-color: #FFFFFF;
     text-align: center;
@@ -47,5 +48,9 @@
 }
 
 .form-control{
-    text-align: center;
+    text-align: left;
+}
+
+.title{
+    color: #628EFF;
 }
