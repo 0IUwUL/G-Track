@@ -15,7 +15,7 @@
 </head>
 <body class="bg-light">
     <nav class="navbar navbar" style="background-color: #628EFF;">
-      <a class="navbar-brand mx-3 text-light strong h3" href="#"><strong>ET App</strong></a>
+      <a class="navbar-brand mx-3 text-light strong h3" href = "<?php echo base_url();?>pages/view"><strong>ET App</strong></a>
         
       <div class="nav-item mx-3">
         <div class="d-flex">
@@ -25,7 +25,7 @@
             <ul class="dropdown-menu dropdown-menu-end mx-3 my-2" style="background-color: #F6F6F6;">
                 <li><a class="dropdown-item" type="button"><strong>Name</strong></a></li>
                 <li><a class="dropdown-item" type="button">Settings</a></li>
-                <li><a class="dropdown-item" type="button">About</a></li>
+                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/view/about">About</a></li>
                 <li><a class="dropdown-item" type="button">Logout</a></li>
             </ul>
         </div>
