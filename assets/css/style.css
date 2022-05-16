@@ -75,15 +75,13 @@
     top: -13px;
 }
 .social-icon{
-    display: grid;
+    display: flex;
     justify-content: center;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
 }
 .social-icon i{
     font-size: 2rem;
 }
 .mb-3 p{
     text-align: left;
-    padding-left: 5px;
+    padding-left: 0.3rem;
 }
