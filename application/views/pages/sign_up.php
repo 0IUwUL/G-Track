@@ -24,12 +24,12 @@
                     <button type="submit" class="btn btn-custom" name="submit" style="color: #F6F6F6">Sign Up</button>
                 </div>
                 <div class="mb-3">
-                    <hr>OR</hr>
+                    <hr></hr>
                 </div>
-                <div class="mb-3">
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="google"><i class="bi bi-google"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <div class="social-icon mb-3">
+                    <a href="#" class="instagram"><i class="bi bi-instagram mx-5"></i></a>
+                    <a href="#" class="google"><i class="bi bi-google mx-5"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook mx-5"></i></a>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <p>Already a User? <a href="#"><u>LOGIN</u></a></p>

@@ -55,14 +55,33 @@
     color: #628EFF;
 }
 /* For Sign Up */
-.mb-3 i{
-    font-size: 30px;
-    padding-left: 20px;
+.mb-3 hr{
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-top: 1px solid #000;
+    color: #000;
+    overflow: visible;
+    text-align: center;
+    height: 0.1rem;
 }
-.mb-3 i:first-child{
-    margin-left: -1.5%;
+.mb-3 hr:after{
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    content: 'OR';
+    padding: 3px 3px;
+    position: relative;
+    top: -13px;
+}
+.social-icon{
+    display: flex;
+    justify-content: center;
+}
+.social-icon i{
+    font-size: 2rem;
 }
 .mb-3 p{
     text-align: left;
-    padding-left: 5px;
+    padding-left: 0.3rem;
 }
