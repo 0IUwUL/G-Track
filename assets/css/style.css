@@ -56,17 +56,18 @@
 }
 /* For Sign Up */
 .mb-3 hr{
-    margin-top: 20px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
     border: none;
-    border-top: 1px solid #333;
-    color: #333;
+    border-top: 1px solid #000;
+    color: #000;
     overflow: visible;
     text-align: center;
-    height: 10px;
+    height: 0.1rem;
 }
 .mb-3 hr:after{
     background: #fff;
-    border: 1px solid #333;
+    border: 1px solid #000;
     border-radius: 4px;
     content: 'OR';
     padding: 3px 3px;
@@ -74,11 +75,13 @@
     top: -13px;
 }
 .social-icon{
-    display: flex;
+    display: grid;
     justify-content: center;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
 }
 .social-icon i{
-    margin-right: 8px;
+    font-size: 2rem;
 }
 .mb-3 p{
     text-align: left;

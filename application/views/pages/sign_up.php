@@ -27,9 +27,9 @@
                     <hr></hr>
                 </div>
                 <div class="social-icon mb-3">
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="google"><i class="bi bi-google"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram mx-5"></i></a>
+                    <a href="#" class="google"><i class="bi bi-google mx-5"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook mx-5"></i></a>
                 </div>
                 <div class="row justify-content-center mt-3">
                     <p>Already a User? <a href="#"><u>LOGIN</u></a></p>
