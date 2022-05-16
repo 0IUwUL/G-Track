@@ -24,9 +24,9 @@
                     <button type="submit" class="btn btn-custom" name="submit" style="color: #F6F6F6">Sign Up</button>
                 </div>
                 <div class="mb-3">
-                    <hr>OR</hr>
+                    <hr></hr>
                 </div>
-                <div class="mb-3">
+                <div class="social-icon mb-3">
                     <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                     <a href="#" class="google"><i class="bi bi-google"></i></a>
                     <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
