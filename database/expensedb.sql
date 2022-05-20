@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2022 at 11:26 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: May 20, 2022 at 05:54 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `expensedb`
+-- Database: `expense_tracker`
 --
 
 -- --------------------------------------------------------
@@ -60,8 +60,17 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `income` int(11) NOT NULL,
+  `code` varchar(100) NOT NULL,
   `verified` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `income`, `code`, `verified`) VALUES
+(3, 'richard', 'richardandrei.sunga@tup.edu.ph', '$2y$10$XtiC5oRYzIMXI4VcSI5zguOmVzdbO.STkPtBXAFQHS8uXp39Tz/fW', 0, 'cd97b8405f90', 1),
+(4, 'asd', 'rasunga30@gmail.com', '$2y$10$sp9H3myLNrnUf0wKiqB4wuH2u.RfZcDQtRU8k5kMjq968IyYeqEOq', 0, '4a0b02a4da7f', 1);
 
 --
 -- Indexes for dumped tables
@@ -108,7 +117,7 @@ ALTER TABLE `expense`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
