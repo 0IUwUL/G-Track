@@ -5,24 +5,33 @@
                 <div class="logo shadow">
                     <img src="<?php echo base_url('assets/img/logo.png')?>" width="138" height="130" class="rounded rounded-circle">
                 </div>
-                <div class="mb-3">
-                    <h3>Create Account</h3>
-                </div>
-                <div class="mb-3">
-                    <p>Email</p>
-                    <input type="text" class="form-control"  name="name">
-                </div>
-                <div class="mb-3">
-                    <p>Password</p>
-                    <input type="password" class="form-control"  name="new_password">
-                </div>
-                <div class="mb-3">
-                    <p>Confirm Password</p>
-                    <input type="password" class="form-control"  name="confirm_password">
-                </div>
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-custom" name="submit" style="color: #F6F6F6">Sign Up</button>
-                </div>
+                <?php echo form_open("sign_up/register") ;?>
+                    <div class="mb-3">
+                        <h3>Create Account</h3>
+                    </div>
+                    <div class="mb-3">
+                        <p>Username</p>
+                        <input type="text" class="form-control"  name="username">
+                    </div>
+                    <div class="mb-3">
+                        <p>Email</p>
+                        <input type="text" class="form-control"  name="email">
+                    </div>
+                    <div class="mb-3">
+                        <p>Password</p>
+                        <input type="password" class="form-control"  name="password_1">
+                    </div>
+                    <div class="mb-3">
+                        <p>Confirm Password</p>
+                        <input type="password" class="form-control"  name="password_2">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-custom" name="submit" style="color: #F6F6F6">Sign Up</button>
+                    </div>
+                    <div class="errorsignup">
+                            <?php echo validation_errors();?>
+                    </div>
+                </form>
                 <div class="mb-3">
                     <hr></hr>
                 </div>
@@ -32,8 +41,9 @@
                     <a href="#" class="facebook"><i class="bi bi-facebook mx-5"></i></a>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <p>Already a User? <a href="#"><u>LOGIN</u></a></p>
+                    <p>Already a User? <a href="<?php echo site_url("logins/index")?>"><u>LOGIN</u></a></p>
                 </div>
+                
             </div>
         </div>    
     </div>
