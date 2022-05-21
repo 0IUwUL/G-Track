@@ -1,7 +1,7 @@
     <div class="container mt-5">
         <div class="row">
             <!-- content -->
-            <div class="row col justify-content-center my-5">
+            <div class="row col justify-content-center my-5 text-color">
                     <div class="card text-center bg-light p-0 d_expenses rounded-3 shadow">
                         <div class="card-body">
                             <h4 class="card-title">Total expenses</h4>
