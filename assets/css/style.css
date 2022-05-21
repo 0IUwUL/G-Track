@@ -12,23 +12,25 @@
 
 .list{
     height: 85vh;
-    width: 100%;
+    width: 75rem;
     background-color: #F6F6F6;
     color: #628EFF;
 }
 .categories{
-    width: 70wh;
     background-color: #F6F6F6;
     color: #628EFF;
     height: 40vh;
+    width: 16rem;
 }
 
+.transaction{
+  margin: 0 0 0 5rem
+}
 
 /* calendar */
 .cal_font{
     font-family: "Quicksand", sans-serif;
     background-color: #222227;
-    margin: 0;
     padding: 0;
 }
 .calendar {

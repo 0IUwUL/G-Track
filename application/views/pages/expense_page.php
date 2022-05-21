@@ -23,7 +23,7 @@
             </div>
             <!-- calendar part -->
             <div class="row col cal_font justify-content-center text-center text-white m-3">
-                <div class=" shadow calendar">
+                <div class="calendar">
                     <div class="month align-items-center">
                       <i class="fas fa-angle-left prev"></i>
                       <div class="date">

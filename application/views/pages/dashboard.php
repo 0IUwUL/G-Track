@@ -8,7 +8,7 @@
                         </div>
                     </div>
                     <div class = "status col shadow mb-5 rounded">
-                        <div class="row justify-content-center mt-3 h5">
+                        <div class="row justify-content-center text-center mt-3 h5 text-wrap">
                             Business Transactions
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                     
                 </div>
             </div>
-            <div class = "ml-5 row col-3">
+            <div class = "transaction row col-3 justify-content-center">
                 <div class = "list col shadow mb-5 rounded">
                     <div class="row justify-content-center h5 mt-3">
                         TRANSACTIONS
