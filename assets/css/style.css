@@ -190,3 +190,21 @@
     text-align: left;
     padding-left: 0.3rem;
 }
+
+/* for Report */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report{
+    background-color: #F6F6F6;
+}
+
+.choices{
+    width: 70wh;
+    background-color: #F6F6F6;
+    color: #628EFF;
+    height: 40vh;
+}
