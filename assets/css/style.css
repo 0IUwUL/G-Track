@@ -192,7 +192,7 @@
 }
 
 /* for Report */
-.container{
+.repbox{
     display: flex;
     justify-content: center;
     align-items: center;

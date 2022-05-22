@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="repbox my-5">
     
 
     <div class="row col-8">
