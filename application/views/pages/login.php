@@ -20,7 +20,7 @@
                     Not A User? <a href="<?php echo site_url("")?>"style="color: #FB0000">Sign Up</a>
                 </div>
                 <div class="row justify-content-center h5 mt-3">
-                    <a href="<?php echo site_url("")?>"style="color: #FB0000">Forgot Password?</a>
+                    <a href="forgot_pass"style="color: #FB0000; text-decoration: none"><strong>Forgot Password?</strong></a>
                 </div>
             
             </div>
