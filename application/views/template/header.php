@@ -30,7 +30,7 @@
                 <li><a class="dropdown-item" type="button"><strong>Name</strong></a></li>
                 <li><a class="dropdown-item" type="button">Settings</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/view/about">About</a></li>
-                <li><a class="dropdown-item" type="button">Logout</a></li>
+                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>logout">Logout</a></li>
             </ul>
         </div>
       </div>
