@@ -44,7 +44,7 @@ class Logins extends CI_Controller {
             $data["error"]= $this->login->login_user($username,$password);
             
 			if($data["error"]== "Login Success"){
-				redirect("pages");
+				redirect("dashboard");
 			}
 
 			// Load login forms again

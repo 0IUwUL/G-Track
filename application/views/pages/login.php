@@ -23,7 +23,7 @@
                 </div>
                 <p class="error"><?php echo isset($error)? $error : "" ;?></p>
                 <div class=" h5 mt-3">
-                    Not A User? <a href="<?php echo site_url("sign_up/index")?>"style="color: #FB0000">Sign Up</a>
+                    Not A User? <a href="<?php echo site_url("sign_up")?>"style="color: #FB0000">Sign Up</a>
                 </div>
                 <div class="row justify-content-center h5 mt-3">
                     <a href="<?php echo site_url("")?>"style="color: #FB0000">Forgot Password?</a>

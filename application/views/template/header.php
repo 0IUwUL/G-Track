@@ -19,7 +19,7 @@
 </head>
 <body class="bg-light">
     <nav class="navbar navbar" style="background-color: #628EFF;">
-      <a class="navbar-brand mx-3 text-light strong h3" href = "<?php echo base_url();?>pages/view"><strong>ET App</strong></a>
+      <a class="navbar-brand mx-3 text-light strong h3" href = "<?php echo base_url();?>dashboard"><strong>ET App</strong></a>
         
       <div class="nav-item mx-3">
         <div class="d-flex">
