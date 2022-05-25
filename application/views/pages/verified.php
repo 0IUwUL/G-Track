@@ -12,7 +12,7 @@
                    
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <a href="<?php echo site_url("pages/view")?>"><u>Go to login page</u></a>
+                    <a href="<?php echo site_url("pages/view")?>"><u>Go to dashboard</u></a>
                 </div>
             </div>
         </div>    
