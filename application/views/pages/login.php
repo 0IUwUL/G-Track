@@ -5,7 +5,7 @@
                 <div class="logo shadow">
                     <img src="<?php echo base_url('assets/img/logo.png')?>" width="138" height="130" class="rounded rounded-circle">
                 </div>
-
+                <form  method="post" action="<?php echo site_url("Logins/logging_in")?>">
                 <div class="mb-3">
                     <input type="text" class="form-control" placeholder="Enter Username Here" name="username">
                 </div>
@@ -22,7 +22,7 @@
                 <div class="row justify-content-center h5 mt-3">
                     <a href="<?php echo site_url("")?>"style="color: #FB0000; text-decoration: none"><strong>Forgot Password?</strong></a>
                 </div>
-            
+                </form>
             </div>
         </div>    
     </div>

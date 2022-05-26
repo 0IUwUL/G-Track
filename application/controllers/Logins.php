@@ -25,4 +25,8 @@ class Logins extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function logging_in()
+	{
+
+	}
 }
