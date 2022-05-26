@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Forgot_Password extends CI_Controller {
+class Change_Password extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,10 +18,24 @@ class Forgot_Password extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+
+	private $user = null;
+
+	public function __construct(){
+        parent::__construct();
+        $this->user = $this->session->userdata('user');
+    }
+
 	public function index()
 	{
 		$this->load->view('template/header');
 		$this->load->view('change_pass');
 		$this->load->view('template/footer');
 	}
+
+	public function edit_password(){
+        $data = $this->input->post();
+        $this->changepass_model->update_password($data);
+        redirect('change_pass');
+    }
 }
