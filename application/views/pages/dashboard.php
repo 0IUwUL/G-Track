@@ -3,7 +3,6 @@
     redirect("/");
   }
 ?>
-
     <div class="container my-5">
         <div class="row mx-3">
             <div class="row col-8">
@@ -27,26 +26,15 @@
         <!--categories-->
                 <div class="row mx-1">
                     <div class="row row-cols-3">
+                        <?php foreach ($display as $title){
+                        ?>
                         <div class = "categories col shadow mb-5 rounded">
                             <div class="row justify-content-center mt-3 h5">
-                                Sample 1
+                                <?php print($title['title'])?>
                             </div>
                         </div>
-                        <div class = "categories col shadow mb-5 rounded">
-                            <div class="row justify-content-center mt-3 h5">
-                                Sample 2
-                            </div>
-                        </div>
-                        <div class = "categories col shadow mb-5 rounded">
-                            <div class="row justify-content-center mt-3 h5">
-                                Sample 3
-                            </div>
-                        </div>
-                        <div class = "categories col shadow mb-5 rounded">
-                            <div class="row justify-content-center mt-3 h5">
-                                Sample 4 
-                            </div>
-                        </div>
+                        <?php
+                        }  ?>
                         <div class = "categories col shadow mb-5 rounded">
                             <div class="row d-flex justify-content-center my-auto h5">
                                 <!-- Button trigger modal -->
@@ -62,7 +50,7 @@
                                         <h5 class="modal-title" id="InputModalLabel">Create Category</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <?php echo form_open("Category/CategoryC/input") ;?>
+                                            <?php echo form_open("Category/input") ;?>
                                                 <div class="mb-3">
                                                   <label for="CategoryName" class="form-label">Category Name</label>
                                                   <input type="text" class="form-control" id="CategoryName" aria-describedby="CategoryNameHelp" name = "title" required>

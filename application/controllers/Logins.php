@@ -44,7 +44,8 @@ class Logins extends CI_Controller {
             $data["error"]= $this->login->login_user($username,$password);
             
 			if($data["error"]== "Login Success"){
-				redirect("dashboard");
+				$val["display"] = $this->category->get();
+            	redirect("dashboard", $val);
 			}
 
 			// Load login forms again

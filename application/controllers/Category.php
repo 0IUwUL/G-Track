@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class CategoryC extends CI_Controller {
+class Category extends CI_Controller {
 
     public function input()
     {
@@ -13,10 +13,11 @@ class CategoryC extends CI_Controller {
             'budget'  =>  $this->input->post('budget'),
         );
 
-        $status = $this->category->C_category($category_data);
+        $status["success"] = $this->category->C_category($category_data);
+        
         if($status)
             redirect("dashboard");
         else
-            echo 'no';
+            show_error("Database error", 0, $heading = 'An Error Was Encountered');
     }
 }
