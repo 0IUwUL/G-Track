@@ -28,6 +28,7 @@ class Registration_model extends CI_Model{
         }
         return false; 
     }
+
     // UPDATE ACTIVE STATUS OF USER
     public function activate_acc($username,$code,$data){
         $this->db->select('*');
@@ -37,7 +38,19 @@ class Registration_model extends CI_Model{
     
         if ($query->num_rows() > 0) {
             $this->db->where('name', $username);    
-            $this->db->where('code', $code);    
+            $this->db->where('code', $code);   
+
+            // Set the session
+            $q = $query->row_array();
+            $user_data = array(
+            'user_id' => $q["id"],
+            'username' => $q["name"],
+            'email' => $q["email"],
+            'success' => "You are now logged in",
+            'logged_in'=> true
+            );
+            $this->session->set_userdata($user_data);
+            
             return $this->db->update('user', $data);
         }
     }
