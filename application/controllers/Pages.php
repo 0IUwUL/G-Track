@@ -18,7 +18,8 @@ class Pages extends CI_Controller {
         if($page == 'dashboard'){
             $val["display"] = $this->category->get();
             $this->load->view("pages/".$page, $val);
-        }
+        }else
+            $this->load->view("pages/".$page); 
         $this->load->view("template/footer.php");
     }
 }

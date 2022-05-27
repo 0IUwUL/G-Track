@@ -8,5 +8,5 @@ $route['default_controller'] = 'logins/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// Expense CRUD
-$route["expenses/(:any)"]="Expense_Page/Vexpense/view";
+// Category
+$route["Category/delete/(:any)"]="Category/delete/$1";

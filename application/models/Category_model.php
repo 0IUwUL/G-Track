@@ -20,6 +20,22 @@ class Category_model extends CI_Model{
             return $objQuery->result_array();
         }
     }
+
+    public function update($id, $data){
+        $this->db->where('id =', $id );
+        if( $this->db->update('categories', $data))
+            return true;
+        else
+          return false;
+    }
+
+    public function delete($id){
+        if ($this->db->delete('categories', array('id' => $id))) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 ?>
