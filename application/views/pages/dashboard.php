@@ -62,14 +62,14 @@
                                         <h5 class="modal-title" id="InputModalLabel">Create Category</h5>
                                         </div>
                                         <div class="modal-body">
-                                            <form>
+                                            <?php echo form_open("Category/CategoryC/input") ;?>
                                                 <div class="mb-3">
                                                   <label for="CategoryName" class="form-label">Category Name</label>
-                                                  <input type="email" class="form-control" id="CategoryName" aria-describedby="CategoryNameHelp">
+                                                  <input type="text" class="form-control" id="CategoryName" aria-describedby="CategoryNameHelp" name = "title" required>
                                                 </div>
                                                 <div class="mb-3">
                                                   <label for="Budget" class="form-label">Budget</label>
-                                                  <input type="number" class="form-control" id="Budget">
+                                                  <input type="number" class="form-control" id="Budget" name = "budget" required>
                                                 </div>
                                             
                                         </div>
