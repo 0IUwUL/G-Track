@@ -7,3 +7,6 @@ $route["pages/view/(:any)"]="pages/view/$1";
 $route['default_controller'] = 'logins/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// Category
+$route["Category/delete/(:any)"]="Category/delete/$1";
