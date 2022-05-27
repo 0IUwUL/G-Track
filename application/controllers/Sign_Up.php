@@ -6,7 +6,6 @@ class Sign_Up extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('template/header');
 		$this->load->view('pages/sign_up');
 		$this->load->view('template/footer');
 	}
@@ -21,7 +20,6 @@ class Sign_Up extends CI_Controller {
         $this->form_validation->set_error_delimiters('','');
         if($this->form_validation->run()===false) {
             $data["error"] =  validation_errors();
-            $this->load->view("template/header");
             $this->load->view("pages/sign_up");
             $this->load->view("template/footer");
         }else { // If the is forms filled up correctly
@@ -58,7 +56,6 @@ class Sign_Up extends CI_Controller {
             $this->send($email, 'template/email_format', $emailData); // Call email setup function
           
             // Load email sent html to notify the user
-            $this->load->view("template/header");
             $this->load->view("pages/checkemail");
             $this->load->view("template/footer");
         }
@@ -144,7 +141,6 @@ class Sign_Up extends CI_Controller {
         
         // If true, inform the user in verify.php
         if ($query){
-        $this->load->view("template/header");
         $this->load->view("pages/verified");
         $this->load->view("template/footer");  
         
