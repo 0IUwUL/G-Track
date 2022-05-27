@@ -23,6 +23,12 @@
     width: 16rem;
 }
 
+.tableC{
+    height: 60%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
 .transaction{
   margin: 0 0 0 5rem
 }

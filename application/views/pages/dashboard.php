@@ -48,13 +48,44 @@
                             <div class="d-flex justify-content-around mt-2 h6">
                                 Budget: <?php echo $title['budget']; ?>
                             </div>
+                            <div class="justify-content-evenly mt-3 tableC" type="button" data-bs-toggle="modal" data-bs-target="#Expense"
+                            id = "E<?php echo $title['id']; ?>"
+                            onclick = "exp(<?php echo $title['id']; ?>);"
+                            data-id ="<?php echo $title['id']; ?>"
+                            >
+                            <table class="table table-striped">
+                                <tr class="table-success">
+                                    <th>Name</th>
+                                    <th>Cost</th>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                    <td>1000000000</td>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                </tr>
+                                <tr>
+                                    <td>wow</td>
+                                </tr>
+                            </table>
+                            </div>
                         </div>
                         <?php
                         }  ?>
                         <div class = "categories col shadow mb-5 rounded">
                             <div class="row d-flex justify-content-center my-auto h5">
                                 <!-- Button trigger modal -->
-                                <button type="button" class="Cadd btn" data-bs-toggle="modal" data-bs-target="#InputModal">
+                                <button type="button" class="Cadd btn my-5" data-bs-toggle="modal" data-bs-target="#InputModal">
                                     <i class="bi bi-plus-lg h2" style="color: #628EFF"></i>
                                 </button>
                             </div>
@@ -106,5 +137,22 @@
     </div>
 </div>
 
+<!--Expense Modal -->
+<div class="modal fade" id="Expense" tabindex="-1" aria-labelledby="ExpenseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-color">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="InputModalTitleLabel">Would you like to input an expense?</h5>
+            </div>
+            <div class="modal-body d-flex justify-content-end">
+            <?php echo form_open("Expense/view") ;?>
+                <input type="hidden" id="EId" name="EId" value="">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="<?php echo base_url('assets/script/script.js')?>"></script>
+<script src="<?php echo base_url('assets/script/CRUD.js')?>"></script>

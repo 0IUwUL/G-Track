@@ -10,3 +10,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Category
 $route["Category/delete/(:any)"]="Category/delete/$1";
+
+// Expense
+$route["Expense/view/(:any)"]="Expense/view/$1";
