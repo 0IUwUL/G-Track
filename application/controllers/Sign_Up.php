@@ -3,12 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Sign_Up extends CI_Controller {
 
-	public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('Registration_model');
-
-    }
 
 	public function index()
 	{
@@ -51,7 +45,7 @@ class Sign_Up extends CI_Controller {
                 'income' => 0,
                 'verified' => 0
               );
-            $this->Registration_model->insert_user($userData); // Pass the data and update the database
+            $this->registration->insert_user($userData); // Pass the data and update the database
             
             // Content to be passed on email format
             $emailData = array(
@@ -72,7 +66,7 @@ class Sign_Up extends CI_Controller {
 
 	public function checkUserName($username)
     {
-        if ($this->Registration_model->checkUserExist($username) == false) {
+        if ($this->registration->checkUserExist($username) == false) {
              return true;
         }else {
          $this->form_validation->set_message('checkUserName', 'Username already exists');
@@ -87,7 +81,7 @@ class Sign_Up extends CI_Controller {
             return false;
         } 
        
-        if ($this->Registration_model->checkEmail($email) == false) {
+        if ($this->registration->checkEmail($email) == false) {
              return true;
         }else {
          $this->form_validation->set_message('checkEmail', 'Email already exists');
@@ -146,7 +140,7 @@ class Sign_Up extends CI_Controller {
         $username = $this->uri->segment(3); //get email from url
         $code = $this->uri->segment(4); //get code from url
         $data['verified'] = 1;
-        $query= $this->Registration_model->activate_acc($username, $code, $data); //check in the database
+        $query= $this->registration->activate_acc($username, $code, $data); //check in the database
         
         // If true, inform the user in verify.php
         if ($query){

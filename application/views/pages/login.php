@@ -6,6 +6,7 @@
                     <img src="<?php echo base_url('assets/img/logo.png')?>" width="138" height="130" class="rounded rounded-circle">
                 </div>
 
+                <?php echo form_open("Logins/login") ;?>
                 <div class="mb-3">
                     <input type="text" class="form-control" placeholder="Enter Username Here" name="username">
                 </div>
@@ -16,8 +17,13 @@
                 <div class="mb-3">
                     <button type="submit" class="btn btn-custom" name="login" style="color: #F6F6F6">Login</button>
                 </div>
+                </form>
+                <div class="errorsignup">
+                    <?php echo validation_errors();?>
+                </div>
+                <p class="error"><?php echo isset($error)? $error : "" ;?></p>
                 <div class=" h5 mt-3">
-                    Not A User? <a href="<?php echo site_url("sign_up/index")?>"style="color: #FB0000">Sign Up</a>
+                    Not A User? <a href="<?php echo site_url("sign_up")?>"style="color: #FB0000">Sign Up</a>
                 </div>
                 <div class="row justify-content-center h5 mt-3">
                     <a href="<?php echo site_url("")?>"style="color: #FB0000">Forgot Password?</a>

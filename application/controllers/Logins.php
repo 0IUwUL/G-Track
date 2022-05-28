@@ -25,4 +25,33 @@ class Logins extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function login()
+    {
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('password','Password','required');
+        // para mawala yung tag sa validation_error()
+        $this->form_validation->set_error_delimiters('','');
+        $this->load->view("template/header");
+        if($this->form_validation->run()===false) {
+            $data["error"] =  validation_errors();
+            $this->load->view("pages/login", $data);// Load body
+        }else {
+            // Get user login input
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+
+            // Login validation 
+            $data["error"]= $this->login->login_user($username,$password);
+            
+			if($data["error"]== "Login Success"){
+				redirect("dashboard");
+			}
+
+			// Load login forms again
+			$this->load->view("pages/login", $data);
+			
+        }
+		$this->load->view("template/footer");
+    }
+
 }

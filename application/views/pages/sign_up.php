@@ -41,7 +41,7 @@
                     <a href="#" class="facebook"><i class="bi bi-facebook mx-5"></i></a>
                 </div>
                 <div class="row justify-content-center mt-3">
-                    <p>Already a User? <a href="<?php echo site_url("logins/index")?>"><u>LOGIN</u></a></p>
+                    <p>Already a User? <a href="<?php echo base_url('/')?>"><u>LOGIN</u></a></p>
                 </div>
                 
             </div>

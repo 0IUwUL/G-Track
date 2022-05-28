@@ -6,22 +6,47 @@ class Changepass_model extends CI_Model{
         $this->load->database();
     }
 
-    public function update_password($data){
-        $data2 = array(
-            'password'=> $data['password']
-        );
+    private $errors = array();
 
-        if(password_verify($data['currpass'], $this->session->userdata('user')['password']) && $data['password'] == $data['confpass']){
-            $this->db->where('id', $this->session->userdata('user')['id']);
+    public function get_user($email){
+        $query = $this->db->get_where("user",array("email"=>email));
 
-            $data3 = array(
-                'password'=> password_hash($data['password'], PASSWORD_DEFAULT)
-            );
-            
-            $_SESSION['change'] = 1;// echo password changed
-            return $this->db->update('user', $data3);
-        }else{
-            $_SESSION['mismatch'] = 1; // echo passwords do not match
-        }
+        return $querry->row_array()['name'];
     }
+
+    function checkEmail($email){
+        $this->db->select('*');
+        $this->db->where('email', $email);
+        $query = $this->db->get('user');
+        if($query->num_rows()>0){
+            return true;
+        }
+        return false;
+    }
+
+    public function check_password($email,$hashed_pass){
+        $this->db->select('*');
+        $this->db->where('email', $email);
+
+        $query = $this->db->get('user');
+        if($query->num_rows()>0){
+            $q = $query->row_array();
+            $result = $q['password'];
+        }
+        else{
+            if(!password_verify($hashed_pass,$result)){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public function change_password($email,$data){
+        $query = $this->db->where('email', $email);
+        return $this->db->update('user', $data);
+    }
+
 }
