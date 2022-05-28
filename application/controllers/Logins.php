@@ -20,7 +20,6 @@ class Logins extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('template/header');
 		$this->load->view('pages/login');
 		$this->load->view('template/footer');
 	}
@@ -31,7 +30,6 @@ class Logins extends CI_Controller {
         $this->form_validation->set_rules('password','Password','required');
         // para mawala yung tag sa validation_error()
         $this->form_validation->set_error_delimiters('','');
-        $this->load->view("template/header");
         if($this->form_validation->run()===false) {
             $data["error"] =  validation_errors();
             $this->load->view("pages/login", $data);// Load body
@@ -44,7 +42,8 @@ class Logins extends CI_Controller {
             $data["error"]= $this->login->login_user($username,$password);
             
 			if($data["error"]== "Login Success"){
-				redirect("dashboard");
+				$val["display"] = $this->category->get();
+            	redirect("dashboard", $val);
 			}
 
 			// Load login forms again
