@@ -38,10 +38,20 @@
     height: 30rem;
     width: auto;
     background-color:#F6F6F6;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 .exp_table{
     border-collapse: separate;
     border-spacing: 0 2rem;
+}
+
+.pos_status{
+    margin-right: 10rem;
+}
+
+.bg_header{
+    background-color:#F6F6F6;
 }
 
 /* for LOGIN */
