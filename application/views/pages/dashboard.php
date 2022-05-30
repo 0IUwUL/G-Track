@@ -142,4 +142,4 @@
     </div>
 </div>
 
-<script src = "CRUD.js"></script>
+<script src = "script.js"></script>

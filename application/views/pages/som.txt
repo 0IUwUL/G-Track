@@ -1,0 +1,13 @@
+<button type="button" class="Cedit btn" data-bs-toggle="modal" data-bs-target="#InputModal" id = "C<?php echo $title['id']; ?>"
+                                onclick = "edit(<?php echo $title['id']; ?>);"
+                                data-id ="<?php echo $title['id']; ?>" 
+                                data-title ="<?php echo $title['title']; ?>"
+                                data-budget = "<?php echo $title['budget']; ?>"
+                                >
+                                    <i class="bi bi-pencil-fill"></i>
+                                </button>
+                                <?php echo form_open("Category/delete/".$title['id']."/") ;?>
+                                    <button type="submit" class="btn">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
