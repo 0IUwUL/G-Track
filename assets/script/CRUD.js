@@ -1,5 +1,5 @@
-// For CRUD
 
+// For CRUD
 function edit(id){
   var id = document.querySelector("#C"+id).getAttribute("data-id");
   var title = document.querySelector("#C"+id).getAttribute("data-title");

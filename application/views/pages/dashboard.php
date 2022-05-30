@@ -28,31 +28,18 @@
                     <div class="row row-cols-3">
                         <?php foreach ($display as $title){
                         ?>
-                        <div class = "categories col shadow mb-5 rounded">
-                            <div class="d-flex justify-content-around mt-3 h5">
-                                <?php print($title['title'])?>
-                                <button type="button" class="Cedit btn" data-bs-toggle="modal" data-bs-target="#InputModal" id = "C<?php echo $title['id']; ?>"
-                                onclick = "edit(<?php echo $title['id']; ?>);"
-                                data-id ="<?php echo $title['id']; ?>" 
-                                data-title ="<?php echo $title['title']; ?>"
-                                data-budget = "<?php echo $title['budget']; ?>"
-                                >
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <?php echo form_open("Category/delete/".$title['id']."/") ;?>
-                                    <button type="submit" class="btn">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="d-flex justify-content-around mt-2 h6">
-                                Budget: <?php echo $title['budget']; ?>
-                            </div>
-                            <div class="justify-content-evenly mt-3 tableC" type="button" data-bs-toggle="modal" data-bs-target="#Expense"
+                        <div class = "categories col shadow mb-5 rounded" type="button" data-bs-toggle="modal" data-bs-target="#Expense"
                             id = "E<?php echo $title['id']; ?>"
                             onclick = "exp(<?php echo $title['id']; ?>);"
                             data-id ="<?php echo $title['id']; ?>"
                             >
+                            <div class="d-flex justify-content-around mt-3 h5">
+                                <?php print($title['title'])?>
+                            </div>
+                            <div class="d-flex justify-content-around mt-2 h6">
+                                Budget: <?php echo $title['budget']; ?>
+                            </div>
+                            <div class="justify-content-evenly mt-3 tableC">
                             <table class="table table-striped">
                                 <tr class="table-success">
                                     <th>Name</th>
@@ -155,4 +142,4 @@
     </div>
 </div>
 
-<script src="<?php echo base_url('assets/script/CRUD.js')?>"></script>
+<script src = "CRUD.js"></script>
