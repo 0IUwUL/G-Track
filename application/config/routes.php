@@ -12,6 +12,14 @@ $route['translate_uri_dashes'] = FALSE;
 $route["Category/delete/(:any)"]="Category/delete/$1";
 
 // Expense
+$route["expense_page/Expense/input/(:any)"] = "Expense/input/$1";
+$route["Expense/view/Expense/input/(:any)"] = "Expense/input/$1";
+$route["expense_page/Cedit"] = "Expense/Cedit";
 $route["Expense/view/Cedit"] = "Expense/Cedit";
+$route["expense_page/Eedit/(:any)"] = "Expense/Eedit/$1";
+$route["Expense/view/Eedit/(:any)"] = "Expense/Eedit/$1";
+$route["Expense/view/Ddelete/(:any)"] = "Expense/Ddelete/$1";
+$route["expense_page/Ddelete/(:any)"] = "Expense/Ddelete/$1";
 $route["Expense/view/(:any)"]="Expense/view/$1";
 $route["expense_page/(:any)"]="Expense/view/$1";
+
