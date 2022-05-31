@@ -1,10 +1,10 @@
 <?php
 
-class Category_model extends CI_Model{
+class Expense_model extends CI_Model{
 
     // Create category
-    public function C_category($data) {
-        if ($this->db->insert('categories', $data)) {
+    public function C_expense($data) {
+        if ($this->db->insert('expense', $data)) {
             // return $this->db->insert_id(); returns last id generated
             return true;
         } else {
@@ -12,10 +12,10 @@ class Category_model extends CI_Model{
         }
     }
 
-    public function get(){
+    public function get($id){
         $this->db->select('*');
-        $this->db->from('categories');
-        if($this->db->where('user_id =', $this->session->userdata('user_id'))){
+        $this->db->from('expense');
+        if($this->db->where('user_id =', $this->session->userdata('user_id')) && $this->db->where('cat_id =', $id)){
             $objQuery = $this->db->get();
             return $objQuery->result_array();
         }
@@ -23,7 +23,7 @@ class Category_model extends CI_Model{
 
     public function get_row($id){
         $this->db->select('*');
-        $this->db->from('categories');
+        $this->db->from('expense');
         if($this->db->where('id =', $id)){
             $objQuery = $this->db->get();
             return $objQuery->result_array();
@@ -31,15 +31,15 @@ class Category_model extends CI_Model{
     }
 
     public function update($id, $data){
-        $this->db->where('id =', $id );
-        if( $this->db->update('categories', $data))
+        $this->db->where('id =', $id);
+        if($this->db->update('expense', $data))
             return true;
         else
           return false;
     }
 
     public function delete($id){
-        if ($this->db->delete('categories', array('id' => $id))) {
+        if ($this->db->delete('expense', array('id' => $id))) {
             return true;
         }else{
             return false;
