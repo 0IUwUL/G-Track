@@ -21,6 +21,15 @@ class Category_model extends CI_Model{
         }
     }
 
+    public function get_row($id){
+        $this->db->select('*');
+        $this->db->from('categories');
+        if($this->db->where('id =', $id)){
+            $objQuery = $this->db->get();
+            return $objQuery->result_array();
+        }
+    }
+
     public function update($id, $data){
         $this->db->where('id =', $id );
         if( $this->db->update('categories', $data))

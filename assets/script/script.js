@@ -1,15 +1,15 @@
 
 // For CRUD
-function edit(id){
-  var id = document.querySelector("#C"+id).getAttribute("data-id");
+function Cedit(id){
+  console.log(id);
   var title = document.querySelector("#C"+id).getAttribute("data-title");
   var budget = document.querySelector("#C"+id).getAttribute("data-budget");
-  document.querySelector("#InputModalTitleLabel").innerHTML = "Edit Category (" + title + ")";
+  document.querySelector("#EditModalTitleLabel").innerHTML = "Edit Category (" + title + ")";
 
   document.querySelector("#CategoryName").value = title;
   document.querySelector("#Budget").value = budget;
   document.querySelector("#CId").value = id;
-  document.querySelector("#CForm").action = "Category/edit";
+  document.querySelector("#CForm").action = "Cedit";
 }
 
 document.querySelector(".Cadd").addEventListener("click", () => {

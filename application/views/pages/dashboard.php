@@ -132,7 +132,7 @@
             <h5 class="modal-title" id="InputModalTitleLabel">Would you like to input an expense?</h5>
             </div>
             <div class="modal-body d-flex justify-content-end">
-            <?php echo form_open("Expense/view") ;?>
+            <?php echo form_open("Expense/view", 'id = "EForm" name = "EForm"') ;?>
                 <input type="hidden" id="EId" name="EId" value="">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Continue</button>
@@ -142,4 +142,4 @@
     </div>
 </div>
 
-<script src = "script.js"></script>
+<script src = "<?php echo base_url('assets/script/script.js')?>"></script>
