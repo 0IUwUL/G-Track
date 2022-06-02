@@ -8,7 +8,7 @@
             <div class="container-fluid nav sidebar flex-column" style="padding:2.5rem">
                 <a href="account_settings" class="nav-link active mt-auto"><i class="bi bi-person-circle"></i> Account</a>
                 <a href="change_pass" class="nav-link"><i class="bi bi-lock"></i> Password</a>
-                <a href="#" class="nav-link"><i class="bi bi-bell"></i> Notifications</a>
+                <!-- <a href="#" class="nav-link"><i class="bi bi-bell"></i> Notifications</a> -->
                 <a href="about" class="nav-link mb-auto"><i class="bi bi-info-circle-fill"></i> About</a>
             </div>
         </div>
