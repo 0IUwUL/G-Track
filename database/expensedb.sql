@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2022 at 05:54 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.14
+-- Generation Time: Jun 02, 2022 at 04:37 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,14 @@ CREATE TABLE `categories` (
   `budget` int(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `user_id`, `title`, `budget`) VALUES
+(52, 5, 'wow', 123),
+(53, 5, 'hiuo', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +53,17 @@ CREATE TABLE `expense` (
   `user_id` int(11) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `cost` int(10) NOT NULL
+  `cost` int(10) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `expense`
+--
+
+INSERT INTO `expense` (`id`, `user_id`, `cat_id`, `name`, `cost`, `date`) VALUES
+(7, 5, 52, 'rawr', 10, '2022-05-06'),
+(9, 5, 53, 'mark', 1, '2022-05-12');
 
 -- --------------------------------------------------------
 
@@ -70,7 +87,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `income`, `code`, `verified`) VALUES
 (3, 'richard', 'richardandrei.sunga@tup.edu.ph', '$2y$10$XtiC5oRYzIMXI4VcSI5zguOmVzdbO.STkPtBXAFQHS8uXp39Tz/fW', 0, 'cd97b8405f90', 1),
-(4, 'asd', 'rasunga30@gmail.com', '$2y$10$sp9H3myLNrnUf0wKiqB4wuH2u.RfZcDQtRU8k5kMjq968IyYeqEOq', 0, '4a0b02a4da7f', 1);
+(4, 'asd', 'rasunga30@gmail.com', '$2y$10$sp9H3myLNrnUf0wKiqB4wuH2u.RfZcDQtRU8k5kMjq968IyYeqEOq', 0, '4a0b02a4da7f', 1),
+(5, 'Mark', 'markaljonreales@gmail.com', '$2y$10$69TJQE/synK8pviLB9sUPONdK.6kRkSRwkOrzNZOkuuBNFC3Kz4Ry', 0, '2872aebea133', 1);
 
 --
 -- Indexes for dumped tables
@@ -105,19 +123,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `expense`
 --
 ALTER TABLE `expense`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
