@@ -22,4 +22,11 @@ class Pages extends CI_Controller {
             $this->load->view("pages/".$page); 
         $this->load->view("template/footer.php");
     }
+
+// Can be used for settings and report page
+    public function Nav($hold){
+        $this->load->view("template/header");
+        $this->load->view("pages/".$hold);
+        $this->load->view("template/footer");
+    }
 }
