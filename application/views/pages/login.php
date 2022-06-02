@@ -51,7 +51,7 @@
                     Not A User? <a href="<?php echo site_url("sign_up")?>"style="color: #FB0000">Sign Up</a>
                 </div>
                 <div class="row justify-content-center h5 mt-3">
-                    <a href="<?php echo site_url("")?>"style="color: #FB0000; text-decoration: none"><strong>Forgot Password?</strong></a>
+                    <a href="<?php echo site_url("pages/view/forgot_pass")?>"style="color: #FB0000; text-decoration: none"><strong>Forgot Password?</strong></a>
                 </div>
                 </form>
             </div>
