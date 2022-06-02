@@ -19,7 +19,7 @@
             <div class="row" style="height:100%">
                 <div class="col-md-3">
                     <div href=# class="d-inline">
-                        <i class="bi bi-person-circle" style="font-size:130px;color: #628EFF"></i>
+                        <img src="<?php echo base_url('assets/img/profile_picture.jpg');?>" style="max-width:100%; height:50%; padding-bottom:1rem">
                         <br>
                         <p class="pl-2">
                             <a href="#" class="btn" style="color: #628EFF;font-weight:600;padding:0">Edit Picture</a>
@@ -28,25 +28,26 @@
                 </div>
                 <div class="col-md-9">
                     <div class="container">
-                        <form>
+                        <?php echo form_open('Account_Settings/change');?>
                             <div class="form-group">
                                 <p for="userName" style="text-align:left;margin-top:1rem">Username</p>
-                                <input type="text" class="form-control" id="userName" placeholder="Username_1">
+                                <input type="text" class="form-control" id="userName" name="userName" value="<?php echo $saur[0]['name'];?>">
                             </div>
                             <div class="form-group">
                                 <p for="email" style="text-align:left;margin-top:1rem">Email</p>
-                                <input type="email" class="form-control" id="email" placeholder="username_1@gmail.com">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $saur[0]['email'];?>">
                             </div>
                             <div class="form-group">
                                 <p for="number" style="text-align:left;margin-top:1rem">Income</p>
-                                <input type="number" class="form-control" id="income">
+                                <input type="number" class="form-control" id="income" name="income" value="<?php echo $saur[0]['income'];?>">
                             </div>
                             <div class="row mt-5">
                                 <div class="col">
-                                    <button type="button" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
                                 <div class="col">
                                     <button type="button" class="btn btn-default btn-block">Cancel</button>
+                                    </form>
                                 </div>
                             </div>
                         </form>

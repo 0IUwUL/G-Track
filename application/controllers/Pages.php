@@ -26,7 +26,8 @@ class Pages extends CI_Controller {
 // Can be used for settings and report page
     public function Nav($hold){
         $this->load->view("template/header");
-        $this->load->view("pages/".$hold);
+        $para['saur'] = $this->editaccount->get_user($this->session->userdata('user_id'));
+        $this->load->view("pages/".$hold,$para);
         $this->load->view("template/footer");
     }
 }
