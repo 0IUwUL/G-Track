@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+$route['report'] = "reports/view";
 $route['logout'] = "logouts/logout";
 $route["sign_up"] = "sign_up/index";
 $route["dashboard"]= "pages/view";
