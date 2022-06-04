@@ -45,29 +45,26 @@
                                     <th>Name</th>
                                     <th>Cost</th>
                                 </tr>
+                                <?php foreach ($title[0] as $item){
+                                    if (count($item) == 0){
+                                ?>
                                 <tr>
-                                    <td>wow</td>
-                                    <td>1000000000</td>
+                                    <td>No Expenses</td>
+                                    <td></td>
                                 </tr>
+                                <?php
+                                }else{  ?>
                                 <tr>
-                                    <td>wow</td>
+                                    <td><?php echo $item['name']; ?></td>
+                                    <td><?php echo $item['cost']; ?></td>
                                 </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
+                                <?php 
+                                }}?>
                             </table>
                             </div>
                         </div>
                         <?php
+                        
                         }  ?>
                         <div class = "categories col shadow mb-5 rounded">
                             <div class="row d-flex justify-content-center my-auto h5">

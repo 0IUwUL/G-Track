@@ -3,6 +3,7 @@
     <!-- header -->
     <div class="d-flex justify-content-between">
       <div class="row mx-2 d-inline">
+        <a class="bi bi-box-arrow-left h3 mr-3" role="button" href="<?php echo base_url();?>dashboard"></a>
         <h3 class="d-inline text-color"><?php echo $cat_details[0]['title']; ?></h3>
         <i 
         class="Cedit btn bi bi-pen-fill d-inline h5" 
