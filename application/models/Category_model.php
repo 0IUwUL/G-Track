@@ -46,6 +46,15 @@ class Category_model extends CI_Model{
         }
     }
 
+    public function update_total($user_id, $cat_id, $value){
+        $this->db->set('expensed', $value)
+                ->where('id', $cat_id)
+                ->where('user_id', $user_id)
+                ->update('categories');
+    }
+
+
+    
     public function get_expense($id){
         $this->db->select('*');
         $this->db->from('expense');
