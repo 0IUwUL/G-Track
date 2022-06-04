@@ -15,8 +15,16 @@ class Pages extends CI_Controller {
         }
 
         $this->load->view("template/header.php");
+        $hold = array();
+        $j=0;
         if($page == 'dashboard'){
             $val["display"] = $this->category->get();
+            
+            foreach ($val['display'] as $items){
+                $hold = $this->category->get_expense($items['id']);
+                array_push($val['display'][$j], $hold);
+                $j+=1;
+            }
             $this->load->view("pages/".$page, $val);
         }else
             $this->load->view("pages/".$page); 
