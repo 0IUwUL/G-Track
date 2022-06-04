@@ -45,6 +45,14 @@ class Category_model extends CI_Model{
             return false;
         }
     }
+
+    public function get_expense($id){
+        $this->db->select('*');
+        $this->db->from('expense');
+        $this->db->where('expense.cat_id', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 
 ?>
