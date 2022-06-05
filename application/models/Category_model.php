@@ -53,8 +53,6 @@ class Category_model extends CI_Model{
                 ->update('categories');
     }
 
-
-    
     public function get_expense($id){
         $this->db->select('*');
         $this->db->from('expense');
