@@ -3,6 +3,7 @@
     <!-- header -->
     <div class="d-flex justify-content-between">
       <div class="row mx-2 d-inline">
+        <a class="bi bi-box-arrow-left h3 mr-3" role="button" href="<?php echo base_url();?>dashboard"></a>
         <h3 class="d-inline text-color"><?php echo $cat_details[0]['title']; ?></h3>
         <i 
         class="Cedit btn bi bi-pen-fill d-inline h5" 
@@ -39,8 +40,8 @@
       <table class="table exp_table">
         <tr class="sticky-top bg_header">
           <th class="text-center p-3">Name</th>
-          <th class="text-center p-3">Date</th>
           <th class="text-center p-3">Cost</th>
+          <th class="text-center p-3">Date</th>
           <th class = "text-center p-3" colspan="2">Actions</th>
         </tr>
         <?php 
@@ -53,7 +54,7 @@
         <?php  foreach ($exp_details as $items){ ?>
         <tr class="shadow">
           <td class="text-center p-4"><strong><?php echo $items['name']; ?></strong></td>
-          <td class="text-center p-4"><strong><?php echo $items['cost']; ?></strong></td>
+          <td class="text-center p-4"><strong><?php echo $items['cost']; ?>.00</strong></td>
           <td class="text-center p-4"><strong><?php echo $items['date']; ?></strong></td>
           <td class="text-center p-4"><strong><i class="bi bi-pencil-square h5"
               role="button"

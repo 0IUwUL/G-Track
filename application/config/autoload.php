@@ -132,6 +132,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('registration_model' => 'registration', 'login_model' => 'login',
+$autoload['model'] = array('registration_model' => 'registration', 'fpass_model'=>'forgot_password', 'login_model' => 'login',
                             'category_model' => 'category','changepass_model' => 'changepass',
                             'expense_model' => 'expense');

@@ -6,8 +6,8 @@
 .status{
     background-color: #F6F6F6;
     color: #628EFF;
-    height: 29vh;
-    width: 100%;
+    height: 25vh;
+    width: 15rem;
 }
 
 .list{
@@ -30,7 +30,18 @@
 }
 
 .transaction{
-  margin: 0 0 0 5rem
+  margin: 0 0 0 5rem;
+  width: 20rem;
+}
+
+.table_tran{
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.hide{
+    display: none;
 }
 
   /* for expense */

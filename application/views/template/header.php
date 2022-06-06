@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ET App</title>
+    <title>G-Track App</title>
     <!--Bootstrap 5 elements link-->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -15,7 +15,7 @@
 </head>
 <body class="bg-light">
     <nav class="navbar navbar" style="background-color: #628EFF;">
-      <a class="navbar-brand mx-3 text-light strong h3" href = "<?php echo base_url();?>dashboard"><strong>ET App</strong></a>
+      <a class="navbar-brand mx-3 text-light strong h3" href = "<?php echo base_url();?>dashboard"><strong>G-Track</strong></a>
         
       <div class="nav-item mx-3">
         <div class="d-flex">
@@ -24,7 +24,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-end mx-3 my-2" style="background-color: #F6F6F6;">
                 <li><a class="dropdown-item" type="button"><strong>Name</strong></a></li>
-                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/Nav/report">Report</a></li>
+                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>report">Report</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/Nav/account_settings">Settings</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/view/about">About</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>logout">Logout</a></li>

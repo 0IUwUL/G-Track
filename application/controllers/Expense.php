@@ -7,7 +7,7 @@ class Expense extends CI_Controller {
         //echo $this->input->post('EId');
         $infoCat['cat_details'] = $this->category->get_row($id);
         $infoCat['exp_details'] = $this->expense->get($id);
-        $infoCat['total'] = $this->total($infoCat);
+        $infoCat['total'] = $this->total($id, $infoCat);
         $infoCat['BudRem'] = $this->comp($infoCat);
         $this->load->view("template/header");
         $this->load->view("pages/expense_page", $infoCat);
@@ -81,11 +81,15 @@ class Expense extends CI_Controller {
             show_error("Error in Database", 0, $heading = 'An Error Was Encountered');
     }
 
-    public function total($arr){
+    public function total($cat_id, $arr){
         $sum = 0;
         foreach ($arr['exp_details'] as $counting){
             $sum+=$counting['cost'];
         }
+
+        // Save total expense per category in the db
+        $this->category->update_total($this->session->userdata('user_id'), $cat_id, $sum);
+
         return $sum;
     }
 

@@ -6,20 +6,27 @@
     <div class="container my-5">
         <div class="row mx-3">
             <div class="row col-8">
-                <div class="row">
-                    <div class = "status col shadow mb-5 rounded">
+                <div class="row justify-content-evenly">
+                    <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center mt-3 h5">
                             Expenses
+                            <div class = "row justify-content-center mt-5 h2 text-secondary">
+                                <?php echo $total ?>.00
+                            </div>
                         </div>
+                            
                     </div>
-                    <div class = "status col shadow mb-5 rounded">
+                    <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center text-center mt-3 h5 text-wrap">
                             Business Transactions
                         </div>
                     </div>
-                    <div class = "status col shadow mb-5 rounded">
+                    <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center mt-3 h5">
                             Budget
+                            <div class = "row justify-content-center text-center mt-<?php echo $budget['margin']; ?> h4 text-<?php echo $budget['color']; ?>">
+                                <?php echo $budget['status'] ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,29 +52,26 @@
                                     <th>Name</th>
                                     <th>Cost</th>
                                 </tr>
+                                <?php foreach ($title[0] as $item){
+                                    if (count($item) == 0){
+                                ?>
                                 <tr>
-                                    <td>wow</td>
-                                    <td>1000000000</td>
+                                    <td>No Expenses</td>
+                                    <td></td>
                                 </tr>
+                                <?php
+                                }else{  ?>
                                 <tr>
-                                    <td>wow</td>
+                                    <td><?php echo $item['name']; ?></td>
+                                    <td><?php echo $item['cost']; ?>.00</td>
                                 </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
-                                <tr>
-                                    <td>wow</td>
-                                </tr>
+                                <?php 
+                                }}?>
                             </table>
                             </div>
                         </div>
                         <?php
+                        
                         }  ?>
                         <div class = "categories col shadow mb-5 rounded">
                             <div class="row d-flex justify-content-center my-auto h5">
@@ -78,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <div class = "transaction row col-3 justify-content-center">
@@ -86,8 +89,22 @@
                     <div class="row justify-content-center h5 mt-3">
                         TRANSACTIONS
                     </div>
-                    <div class="scroll">
-                        
+                    <div class="justify-content-evenly mt-3 table_tran">
+                        <table class="table table-striped">
+                            <tr class="table-primary">
+                                <th>Name</th>
+                                <th>Cost</th>
+                            </tr>
+                            <?php 
+                                foreach ($transaction as $Elist){
+                            ?>
+                            <tr>
+                                <td><?php echo $Elist['name']; ?></td>
+                                <td><?php echo $Elist['cost']; ?>.00</td>
+                                <td class = "hide"><?php echo $Elist['cat_id']; ?></td>
+                            </tr>
+                            <?php }?>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@
                     <img src="<?php echo base_url('assets/img/logo.png')?>" width="138" height="130" class="rounded rounded-circle">
                 </div>
                 <div class="mb-3">
-                    <h3>Verifiation Succesful </br>
+                    <h3>Verification Succesful </br>
                     Thank you for registering to our application, you can now login
                     </h3>
                    
