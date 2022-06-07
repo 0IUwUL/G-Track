@@ -19,34 +19,45 @@
             <div class="row" style="height:100%">
                 <div class="col-md-3">
                     <div href=# class="d-inline">
-                        <i class="bi bi-person-circle" style="font-size:130px;color: #628EFF"></i>
+                        <?php echo form_open_multipart('Account_Settings/edit_profile');?>
+                        <div class="profile">
+                            <?php if($saur[0]['image']!='no_image.png'):?>
+                            <img src="<?php echo base_url('assets/uploads/' .$saur[0]['image']);?>" width="200" height="200" class="rounded rounded-circle">
+                            <?php else:?>
+                            <img src="<?php echo base_url('assets/img/profile_picture.jpg');?>" width="200" height="200" class="rounded rounded-circle">
+                            <?php endif;?>
+                        </div>
                         <br>
                         <p class="pl-2">
-                            <a href="#" class="btn" style="color: #628EFF;font-weight:600;padding:0">Edit Picture</a>
+                            <label for="image" class="btn" style="color: #628EFF;font-weight:600">Edit Picture</label>
+                            <input type="file" name="image"id="image" style="visibility:hidden"></input>
+                            <input type="submit" class="btn btn-primary" style="color: #FFF;font-weight:600;border:none"></input>
                         </p>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="container">
-                        <form>
+                        <?php echo form_open('Account_Settings/change');?>
                             <div class="form-group">
                                 <p for="userName" style="text-align:left;margin-top:1rem">Username</p>
-                                <input type="text" class="form-control" id="userName" placeholder="Username_1">
+                                <input type="text" class="form-control" id="userName" name="userName" value="<?php echo $saur[0]['name'];?>">
                             </div>
                             <div class="form-group">
                                 <p for="email" style="text-align:left;margin-top:1rem">Email</p>
-                                <input type="email" class="form-control" id="email" placeholder="username_1@gmail.com">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo $saur[0]['email'];?>">
                             </div>
                             <div class="form-group">
                                 <p for="number" style="text-align:left;margin-top:1rem">Income</p>
-                                <input type="number" class="form-control" id="income">
+                                <input type="number" class="form-control" id="income" name="income" value="<?php echo $saur[0]['income'];?>">
                             </div>
                             <div class="row mt-5">
                                 <div class="col">
-                                    <button type="button" class="btn btn-primary btn-block">Save Changes</button>
+                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                                 </div>
                                 <div class="col">
                                     <button type="button" class="btn btn-default btn-block">Cancel</button>
+                                    </form>
                                 </div>
                             </div>
                         </form>
