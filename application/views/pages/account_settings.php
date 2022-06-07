@@ -29,9 +29,8 @@
                         </div>
                         <br>
                         <p class="pl-2">
-                            <!-- <input class="btn" role="button" value="upload" style="color: #628EFF;font-weight:600;padding:0">Edit Picture</input> -->
-                            <input type="file" name="image"id="image" style="color: #628EFF;font-weight:600;padding:0"></input>
-                            <input type="submit" style="color: #628EFF;font-weight:600;padding:0;border:none">Confirm</input>
+                            <input type="file" name="image"id="image" style="visibility:hidden;color: #628EFF;font-weight:600;padding:0">Edit Picture</input>
+                            <input type="submit" style="color: #628EFF;font-weight:600;padding:0;border:none"></input>
                         </p>
                         </form>
                     </div>
