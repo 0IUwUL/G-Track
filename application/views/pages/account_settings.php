@@ -29,8 +29,9 @@
                         </div>
                         <br>
                         <p class="pl-2">
-                            <input type="file" name="image"id="image" style="visibility:hidden;color: #628EFF;font-weight:600;padding:0">Edit Picture</input>
-                            <input type="submit" style="color: #628EFF;font-weight:600;padding:0;border:none"></input>
+                            <label for="image" class="btn" style="color: #628EFF;font-weight:600">Edit Picture</label>
+                            <input type="file" name="image"id="image" style="visibility:hidden"></input>
+                            <input type="submit" class="btn btn-primary" style="color: #FFF;font-weight:600;border:none"></input>
                         </p>
                         </form>
                     </div>

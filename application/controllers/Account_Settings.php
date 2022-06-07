@@ -28,7 +28,7 @@ class Account_Settings extends CI_Controller {
     $this->editaccount->update_profile($data, $image);
     redirect('Account_Settings/view');
     }
-    
+
     // Edit User_Data
     public function change(){
         $email = $this->input->post('email');
@@ -50,7 +50,6 @@ class Account_Settings extends CI_Controller {
     public function view(){
         $this->load->view('template/header');
         $para['saur'] = $this->editaccount->get_user($this->session->userdata('user_id'));
-        print_r($para);
 		$this->load->view('pages/account_settings',$para);
 		$this->load->view('template/footer');
     }
