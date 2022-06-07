@@ -3,8 +3,8 @@
     redirect("/");
   }
 ?>
-    <div class="container my-5">
-        <div class="row mx-3">
+    <div class="container-fluid my-5">
+        <div class="row mx-3 justify-content-center">
             <div class="row col-8">
                 <div class="row justify-content-evenly">
                     <div class = "status shadow mb-5 rounded">
@@ -32,10 +32,10 @@
                 </div>
         <!--categories-->
                 <div class="row mx-1">
-                    <div class="row row-cols-3">
+                    <div class="row row-col-3 justify-content-evenly">
                         <?php foreach ($display as $title){
                         ?>
-                        <div class = "categories col shadow mb-5 rounded" type="button" data-bs-toggle="modal" data-bs-target="#Expense"
+                        <div class = "categories shadow mb-5 rounded" type="button" data-bs-toggle="modal" data-bs-target="#Expense"
                             id = "E<?php echo $title['id']; ?>"
                             onclick = "exp(<?php echo $title['id']; ?>);"
                             data-id ="<?php echo $title['id']; ?>"
@@ -73,7 +73,7 @@
                         <?php
                         
                         }  ?>
-                        <div class = "categories col shadow mb-5 rounded">
+                        <div class = "categories shadow mb-5 rounded">
                             <div class="row d-flex justify-content-center my-auto h5">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="Cadd btn my-5" data-bs-toggle="modal" data-bs-target="#InputModal">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class = "transaction row col-3 justify-content-center">
+            <div class = "transaction row col-xl-3 justify-content-center">
                 <div class = "list col shadow mb-5 rounded">
                     <div class="row justify-content-center h5 mt-3">
                         TRANSACTIONS
@@ -158,5 +158,3 @@
         </div>
     </div>
 </div>
-
-<script src = "<?php echo base_url('assets/script/script.js')?>"></script>
