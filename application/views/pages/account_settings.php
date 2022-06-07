@@ -19,11 +19,21 @@
             <div class="row" style="height:100%">
                 <div class="col-md-3">
                     <div href=# class="d-inline">
-                        <img src="<?php echo base_url('assets/img/profile_picture.jpg');?>" style="max-width:100%; height:50%; padding-bottom:1rem">
+                        <?php echo form_open_multipart('Account_Settings/edit_profile');?>
+                        <div class="profile">
+                            <?php if($saur[0]['image']!='no_image.png'):?>
+                            <img src="<?php echo base_url('assets/uploads/' .$saur[0]['image']);?>" width="200" height="200" class="rounded rounded-circle">
+                            <?php else:?>
+                            <img src="<?php echo base_url('assets/img/profile_picture.jpg');?>" width="200" height="200" class="rounded rounded-circle">
+                            <?php endif;?>
+                        </div>
                         <br>
                         <p class="pl-2">
-                            <a href="#" class="btn" style="color: #628EFF;font-weight:600;padding:0">Edit Picture</a>
+                            <!-- <input class="btn" role="button" value="upload" style="color: #628EFF;font-weight:600;padding:0">Edit Picture</input> -->
+                            <input type="file" name="image"id="image" style="color: #628EFF;font-weight:600;padding:0"></input>
+                            <input type="submit" style="color: #628EFF;font-weight:600;padding:0;border:none">Confirm</input>
                         </p>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-9">

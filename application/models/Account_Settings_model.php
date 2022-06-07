@@ -32,6 +32,13 @@ class Account_Settings_model extends CI_Model{
         else
           return false;
     }
+    public function update_profile($data, $image){
+        $data2 = array(
+            "image" => $image
+        );
+        $this->db->where('id', $this->session->userdata('user_id'));
+        return $this->db->update('user',$data2);
+    }
 
 }
 
