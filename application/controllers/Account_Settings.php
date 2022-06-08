@@ -16,17 +16,18 @@ class Account_Settings extends CI_Controller {
         $config['max_size'] = '500000';
         $config['max_width'] = '500000';
         $config['max_height'] = '500000';
-        $config['file_name'] = $this->session->userdata('user_id'). '_'. $_FILES['image']['name'];
+        $config['file_name'] = $this->session->userdata('user_id').'_'.$_FILES['image']['name'];
+        $config['remove_spaces'] = FALSE;
         $this->load->library('upload',$config);
 
-    if(!$this->upload->do_upload('image')){
-        $errors = array('error' => $this->upload->display_errors());
-        $image = 'no_image.png';
-    }else{
-        $image = $config['file_name'];
-    }
-    $this->editaccount->update_profile($data, $image);
-    redirect('Account_Settings/view');
+        if(!$this->upload->do_upload('image')){
+            $errors = array('error' => $this->upload->display_errors());
+            $image = 'no_image.png';
+        }else{
+            $image = $config['file_name'];
+        }
+        $this->editaccount->update_profile($data, $image);
+        redirect('Account_Settings/view');
     }
 
     // Edit User_Data
