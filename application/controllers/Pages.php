@@ -13,10 +13,11 @@ class Pages extends CI_Controller {
         if(!file_exists(APPPATH."views/pages/".$page.".php")) {
            show_404();
         }
-
-        $this->load->view("template/header.php");
+        $header['name'] = $this->editaccount->get_name($this->session->userdata('user_id'));
+        $this->load->view("template/header.php", $header);
         $hold = array();
         $j=0;
+        
         if($page == 'dashboard'){
             $val["display"] = $this->category->get();
 
@@ -32,15 +33,8 @@ class Pages extends CI_Controller {
             $val['transaction'] = $this->expense->get_transaction($this->session->userdata('user_id'));
             $this->load->view("pages/".$page, $val);
         }else
-            $this->load->view("pages/".$page); 
+            $this->load->view("pages/".$page, $val); 
         $this->load->view("template/footer.php");
-    }
-
-// Can be used for settings and report page
-    public function Nav($hold){
-        $this->load->view("template/header");
-        $this->load->view("pages/".$hold);
-        $this->load->view("template/footer");
     }
 
     public function total($arr){

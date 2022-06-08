@@ -23,9 +23,9 @@
                 <i class="bi bi-list h3"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end mx-3 my-2" style="background-color: #F6F6F6;">
-                <li><a class="dropdown-item" type="button"><strong>Name</strong></a></li>
+                <li><a class="dropdown-item text-color h5" type="button" href = "<?php echo base_url();?>Account_Settings/view"><strong><?php echo $name[0]['name']; ?></strong></a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>report">Report</a></li>
-                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/Nav/account_settings">Settings</a></li>
+                <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>Account_Settings/view">Settings</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>pages/view/about">About</a></li>
                 <li><a class="dropdown-item" type="button" href = "<?php echo base_url();?>logout">Logout</a></li>
             </ul>
