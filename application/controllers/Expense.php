@@ -9,7 +9,8 @@ class Expense extends CI_Controller {
         $infoCat['exp_details'] = $this->expense->get($id);
         $infoCat['total'] = $this->total($id, $infoCat);
         $infoCat['BudRem'] = $this->comp($infoCat);
-        $this->load->view("template/header");
+        $header['name'] = $this->editaccount->get_name($this->session->userdata('user_id'));
+        $this->load->view("template/header", $header);
         $this->load->view("pages/expense_page", $infoCat);
         $this->load->view("template/footer");
     }
