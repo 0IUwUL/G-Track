@@ -33,7 +33,7 @@ class Pages extends CI_Controller {
             $val['transaction'] = $this->expense->get_transaction($this->session->userdata('user_id'));
             $this->load->view("pages/".$page, $val);
         }else
-            $this->load->view("pages/".$page, $val); 
+            $this->load->view("pages/".$page); 
         $this->load->view("template/footer.php");
     }
 
