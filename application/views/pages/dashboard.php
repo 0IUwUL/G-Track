@@ -19,6 +19,9 @@
                     <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center text-center mt-3 h5 text-wrap">
                             Business Transactions
+                            <div class = "row justify-content-center mt-5 h5 text-secondary">
+                                (Default transaction)
+                            </div>
                         </div>
                     </div>
                     <div class = "status shadow mb-5 rounded">
