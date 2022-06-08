@@ -66,3 +66,26 @@ function EDel(id){
   document.querySelector("#DelModalTitleLabel").innerHTML = "Would you like to delete " + name + " from the list?";
   document.querySelector("#EForm").action = "Ddelete/"+id;
 }
+
+// For account settings
+function enable(){
+  document.getElementById("close").disabled = false;
+  document.getElementById("cancel").disabled = false;
+  document.getElementById("save").disabled = false;
+  document.getElementById("image").disabled = false;
+  document.getElementById("confirm").disabled = false;
+  document.getElementById("userName").readOnly = false;
+  document.getElementById("email").readOnly = false;
+  document.getElementById("income").readOnly = false;
+}
+
+function disable(){
+  document.getElementById("close").disabled = true;
+  document.getElementById("cancel").disabled = true;
+  document.getElementById("save").disabled = true;
+  document.getElementById("image").disabled = true;
+  document.getElementById("confirm").disabled = true;
+  document.getElementById("userName").readOnly = true;
+  document.getElementById("email").readOnly = true;
+  document.getElementById("income").readOnly = true;
+}
