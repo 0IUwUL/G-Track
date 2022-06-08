@@ -111,7 +111,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="Date" class="form-label" id="LabelDate" hidden>Date used</label>
-                        <input type="date" class="form-control" id="Date" name = "date" hidden>
+                        
+                        <input type="date" class="form-control" id="Date" name = "date" max = "<?php echo $this->session->userdata('date'); ?>" hidden>
                     </div>
                     <input type="hidden" id="CId" name="CId" value="">
                 
