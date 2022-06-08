@@ -12,19 +12,19 @@ class Category_model extends CI_Model{
         }
     }
 
-    public function get(){
+    public function get($id, $Tid){
         $this->db->select('*');
         $this->db->from('categories');
-        if($this->db->where('user_id =', $this->session->userdata('user_id'))){
+        if($this->db->where('user_id =', $id) && $this->db->where('trans_id =', $Tid)){
             $objQuery = $this->db->get();
             return $objQuery->result_array();
         }
     }
 
-    public function get_row($id){
+    public function get_row($id, $Tid){
         $this->db->select('*');
         $this->db->from('categories');
-        if($this->db->where('id =', $id)){
+        if($this->db->where('id =', $id) && $this->db->where('trans_id =', $Tid)){
             $objQuery = $this->db->get();
             return $objQuery->result_array();
         }
@@ -53,10 +53,11 @@ class Category_model extends CI_Model{
                 ->update('categories');
     }
 
-    public function get_expense($id){
+    public function get_expense($id, $Tid){
         $this->db->select('*');
         $this->db->from('expense');
         $this->db->where('expense.cat_id', $id);
+        $this->db->where('expense.trans_id', $Tid);
         $query = $this->db->get();
         return $query->result_array();
     }

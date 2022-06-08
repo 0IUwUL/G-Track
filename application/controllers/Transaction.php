@@ -1,18 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
+class Transaction extends CI_Controller {
 
     public function input()
     {
         $category_data = array(
             'user_id'  => $this->session->userdata('user_id'),
             'title'  =>  $this->input->post('title'),
-            'budget'  =>  $this->input->post('budget'),
-            'trans_id' => $this->session->userdata('trans_id'),
+            'set_default' => $this->input->post('radio'),
         );
 
-        $status = $this->category->C_category($category_data);
+        $status = $this->transaction->add($category_data);
         
         if($status)
             redirect("dashboard");

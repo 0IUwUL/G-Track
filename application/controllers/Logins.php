@@ -42,7 +42,10 @@ class Logins extends CI_Controller {
             $data["error"]= $this->login->login_user($username,$password);
             
 			if($data["error"]== "Login Success"){
-				$val["display"] = $this->category->get();
+				$val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
+				$val['default'] = $this->deft($val['tran']);
+				$this->session->set_userdata('trans_id', $val['default']['id']);
+				$val["display"] = $this->category->get($this->session->userdata('user_id'), $this->session->userdata('trans_id'));
             	redirect("dashboard", $val);
 			}
 
@@ -53,4 +56,11 @@ class Logins extends CI_Controller {
 		$this->load->view("template/footer");
     }
 
+	public function deft($arr){
+        foreach ($arr as $key => $value){
+            if ($value['set_default'] == 1){
+                return $value;
+            }
+        }
+    }
 }

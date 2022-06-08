@@ -19,8 +19,21 @@
                     <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center text-center mt-3 h5 text-wrap">
                             Business Transactions
-                            <div class = "row justify-content-center mt-5 h5 text-secondary">
-                                (Default transaction)
+                            <div class = "dropwdown-center justify-content-center mt-5 h5 text-secondary">
+                                <button class="btn btn-info dropdown-toggle p-2" type="button" id="dropdownCenterBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <strong><?php echo $default['title']; ?></strong>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
+                                    <?php foreach ($tran as $listed){ ?>
+                                    <li id = "T<?php echo $listed['id']; ?>"><a class="dropdown-item" role="button" onclick = "red(<?php echo $listed['id']; ?>)";><?php echo $listed['title']; ?></a></li>
+                                    <?php } ?>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#InputModal" onclick="add_trans();">
+                                            Add new transaction <i class="bi bi-file-plus"></i>
+                                        </button>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -125,19 +138,23 @@
             <div class="modal-body">
                 <?php echo form_open("Category/input", 'id = "CForm" name = "CForm"') ;?>
                     <div class="mb-3">
-                        <label for="CategoryName" class="form-label">Category Name</label>
+                        <label for="CategoryName" class="form-label" id= "label_Cat">Category Name</label>
                         <input type="text" class="form-control" id="CategoryName" aria-describedby="CategoryNameHelp" name = "title" required>
                     </div>
                     <div class="mb-3">
-                        <label for="Budget" class="form-label">Budget</label>
-                        <input type="number" class="form-control" id="Budget" name = "budget" required>
+                        <label for="Budget" class="form-label" id= "label_Budget" hidden>Budget</label>
+                        <input type="number" class="form-control" id="Budget" name = "budget" hidden required>
                     </div>
-                    <input type="hidden" id="CId" name="CId" value="">
+                    <label for="Default_Transaction" class="form-label mr-3" id= "label_Radio" hidden>Would you like to set this as a default transaction? </label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="1" hidden>
+                        <label class="form-check-label" for="inlineRadio1" id = "label_yes" hidden>Yes</label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="0" hidden checked>
+                        <label class="form-check-label" for="inlineRadio1" id = "label_no" hidden>No</label>
                 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save Category</button>
+                <button type="submit" class="btn btn-primary" id = "btn">Save Category</button>
             </div>
                 </form>
         </div>

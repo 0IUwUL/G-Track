@@ -42,7 +42,7 @@ class Sign_Up extends CI_Controller {
                 'code' => $code,
                 'income' => 0,
                 'verified' => 0,
-                'image' => 'no_image.png',
+                'image' => 'no_image.png'
               );
             $this->registration->insert_user($userData); // Pass the data and update the database
             
@@ -142,6 +142,12 @@ class Sign_Up extends CI_Controller {
         
         // If true, inform the user in verify.php
         if ($query){
+            $data = array(
+                'user_id' => $this->session->userdata('user_id'),
+                'title' => 'Default transaction',
+                'set_default' => 1
+            );
+            $this->transaction->add($data);
         $this->load->view("pages/verified");
         $this->load->view("template/footer");  
         

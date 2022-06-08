@@ -46,10 +46,10 @@ class Expense_model extends CI_Model{
         }
     }
 
-    public function get_transaction($id){
+    public function get_transaction($id, $Tid){
         $this->db->select('name, cost, cat_id');
         $this->db->from('expense');
-        if($this->db->where('user_id =', $this->session->userdata('user_id'))){
+        if($this->db->where('user_id =', $id) && $this->db->where('trans_id =', $Tid) ){
             $objQuery = $this->db->get();
             return $objQuery->result_array();
         }

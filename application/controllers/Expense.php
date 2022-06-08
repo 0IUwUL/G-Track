@@ -5,7 +5,7 @@ class Expense extends CI_Controller {
 
     public function view($id){
         //echo $this->input->post('EId');
-        $infoCat['cat_details'] = $this->category->get_row($id);
+        $infoCat['cat_details'] = $this->category->get_row($id, $this->session->userdata('trans_id'));
         $infoCat['exp_details'] = $this->expense->get($id);
         $infoCat['total'] = $this->total($id, $infoCat);
         $infoCat['BudRem'] = $this->comp($infoCat);
@@ -46,6 +46,7 @@ class Expense extends CI_Controller {
             'name'  =>  $this->input->post('title'),
             'cost'  =>  $this->input->post('budget'),
             'date'  =>  $this->input->post('date'),
+            'trans_id' => $this->session->userdata('trans_id'),
         );
 
         $status = $this->expense->C_expense($exp_data);
