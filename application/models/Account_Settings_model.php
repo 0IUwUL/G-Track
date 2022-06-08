@@ -15,6 +15,15 @@ class Account_Settings_model extends CI_Model{
             return $objQuery->result_array();
         }
     }
+
+    public function get_name($id){
+        $this->db->select('name');
+        $this->db->from('user');
+        if($this->db->where('id =', $id)){
+            $objQuery = $this->db->get();
+            return $objQuery->result_array();
+        }
+    }
     // CHECK USERNAME IN THE DATABASE
     function checkUserExist($username) {
         $this->db->select('*');

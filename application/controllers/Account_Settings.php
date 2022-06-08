@@ -48,7 +48,8 @@ class Account_Settings extends CI_Controller {
 			}
     }
     public function view(){
-        $this->load->view('template/header');
+        $header['name'] = $this->editaccount->get_name($this->session->userdata('user_id'));
+        $this->load->view("template/header", $header);
         $para['saur'] = $this->editaccount->get_user($this->session->userdata('user_id'));
 		$this->load->view('pages/account_settings',$para);
 		$this->load->view('template/footer');

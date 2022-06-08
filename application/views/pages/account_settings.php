@@ -21,10 +21,10 @@
                     <div href=# class="d-inline">
                         <?php echo form_open_multipart('Account_Settings/edit_profile');?>
                         <div class="profile">
-                            <?php if($saur[0]['image']!='no_image.png'):?>
+                            <?php if($saur[0]['image']!='no_image.png' && $saur[0]['image'] != ''):?>
                             <img src="<?php echo base_url('assets/uploads/' .$saur[0]['image']);?>" width="200" height="200" class="rounded rounded-circle">
                             <?php else:?>
-                            <img src="<?php echo base_url('assets/img/profile_picture.jpg');?>" width="200" height="200" class="rounded rounded-circle">
+                            <img src="<?php echo base_url('assets/uploads/no_image.png');?>" width="200" height="200" class="rounded rounded-circle">
                             <?php endif;?>
                         </div>
                         <br>

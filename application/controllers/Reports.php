@@ -17,8 +17,8 @@ class Reports extends CI_Controller {
             array_push($reports, $pair);
         }
         $data['reports'] = $reports;
-
-        $this->load->view("template/header");
+        $header['name'] = $this->editaccount->get_name($this->session->userdata('user_id'));
+        $this->load->view("template/header", $header);
         $this->load->view("pages/report", $data);
         $this->load->view("template/footer");
     }
