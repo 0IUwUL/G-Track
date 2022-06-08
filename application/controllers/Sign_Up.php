@@ -41,7 +41,8 @@ class Sign_Up extends CI_Controller {
                 'password' => $hashedPass,
                 'code' => $code,
                 'income' => 0,
-                'verified' => 0
+                'verified' => 0,
+                'image' => 'no_image.png',
               );
             $this->registration->insert_user($userData); // Pass the data and update the database
             
