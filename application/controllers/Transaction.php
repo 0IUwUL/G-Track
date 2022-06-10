@@ -18,4 +18,13 @@ class Transaction extends CI_Controller {
         else
             show_error("Database error", 0, $heading = 'An Error Was Encountered');
     }
+
+    public function change($id){
+        if($id){
+            $this->session->set_userdata('trans_id', $id);
+            redirect('dashboard');
+        }else
+            show_error("Error in Database", 0, $heading = 'An Error had Encountered');
+        
+    }
 }

@@ -26,7 +26,7 @@ class Expense extends CI_Controller {
         if($status)
             redirect('expense_page/'.$this->input->post('CId'));
         else
-            show_error("Update Error in Database", 0, $heading = 'An Error Was Encountered');
+            show_error("Update Error in Database", 0, $heading = 'An Error had Encountered');
 
     }
 
@@ -36,7 +36,7 @@ class Expense extends CI_Controller {
         if($status)
             redirect('dashboard');
         else
-            show_error("Error in Database", 0, $heading = 'An Error Was Encountered');
+            show_error("Error in Database", 0, $heading = 'An Error had Encountered');
     }
 
     public function input($cat_id){
@@ -53,7 +53,7 @@ class Expense extends CI_Controller {
         if($status)
             redirect('expense_page/'.$this->input->post('CId'));
         else
-            show_error("Update Error in Database", 0, $heading = 'An Error Was Encountered');
+            show_error("Update Error in Database", 0, $heading = 'An Error had Encountered');
     }
 
     public function Eedit($id){
@@ -80,7 +80,7 @@ class Expense extends CI_Controller {
         if($status)
             redirect('expense_page/'.$this->input->post('EId'));
         else
-            show_error("Error in Database", 0, $heading = 'An Error Was Encountered');
+            show_error("Error in Database", 0, $heading = 'An Error had Encountered');
     }
 
     public function total($cat_id, $arr){

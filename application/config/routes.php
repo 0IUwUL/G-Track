@@ -9,6 +9,8 @@ $route['default_controller'] = 'logins/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['pages/Transaction/input'] = "Transaction/input";
+$route['change/(:any)'] = "Transaction/change/$1";
 // Category
 $route["Category/delete/(:any)"]="Category/delete/$1";
 

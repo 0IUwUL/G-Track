@@ -20,7 +20,7 @@ class Pages extends CI_Controller {
         
         if($page == 'dashboard'){
             $val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
-            $val['default'] = $this->deft($val['tran']);
+            $val['default'] = $this->deft($val['tran'], $this->session->userdata('trans_id'));
             $val["display"] = $this->category->get($this->session->userdata('user_id'), $this->session->userdata('trans_id'));
             
             // for displaying expenses per category
@@ -68,9 +68,9 @@ class Pages extends CI_Controller {
         return $det; 
     }
 
-    public function deft($arr){
+    public function deft($arr, $id){
         foreach ($arr as $key => $value){
-            if ($value['set_default'] == 1){
+            if ($value['id'] == $id){
                 return $value;
             }
         }

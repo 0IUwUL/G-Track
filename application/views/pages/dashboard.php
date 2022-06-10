@@ -25,7 +25,7 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
                                     <?php foreach ($tran as $listed){ ?>
-                                    <li id = "T<?php echo $listed['id']; ?>"><a class="dropdown-item" role="button" onclick = "red(<?php echo $listed['id']; ?>)";><?php echo $listed['title']; ?></a></li>
+                                    <li id = "T<?php echo $listed['id']; ?>"><a class="Tbtn dropdown-item" role="button" href='<?php echo base_url(); ?>change/<?php echo $listed['id']; ?>'><?php echo $listed['title']; ?></a></li>
                                     <?php } ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>

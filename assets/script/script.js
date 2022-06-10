@@ -46,10 +46,6 @@ function add_trans(){
   document.querySelector("#CForm").action = "Transaction/input";
 }
 
-function red(id){
-  
-}
-
 function exp(id){
   var id = document.querySelector("#E"+id).getAttribute("data-id");
   document.querySelector("#EId").value = id;

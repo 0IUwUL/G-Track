@@ -45,8 +45,7 @@ class Logins extends CI_Controller {
 				$val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
 				$val['default'] = $this->deft($val['tran']);
 				$this->session->set_userdata('trans_id', $val['default']['id']);
-				$val["display"] = $this->category->get($this->session->userdata('user_id'), $this->session->userdata('trans_id'));
-            	redirect("dashboard", $val);
+				redirect("dashboard");
 			}
 
 			// Load login forms again
