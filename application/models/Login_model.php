@@ -32,13 +32,15 @@ class Login_model extends CI_Model{
             return "Incorrect password";
 
         }
-
+        $datetime = time();
+        $datetime = date('Y-m-d', $datetime);
         // Set the session
         $user_data = array(
         'user_id' => $q["id"],
         'username' => $q["name"],
         'email' => $q["email"],
         'success' => "You are now logged in",
+        'date' => $datetime,
         'logged_in'=> true
         );
 

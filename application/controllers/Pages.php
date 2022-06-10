@@ -19,21 +19,23 @@ class Pages extends CI_Controller {
         $j=0;
         
         if($page == 'dashboard'){
-            $val["display"] = $this->category->get();
-
+            $val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
+            $val['default'] = $this->deft($val['tran'], $this->session->userdata('trans_id'));
+            $val["display"] = $this->category->get($this->session->userdata('user_id'), $this->session->userdata('trans_id'));
+            
             // for displaying expenses per category
             foreach ($val['display'] as $items){
-                $hold = $this->category->get_expense($items['id']);
+                $hold = $this->category->get_expense($items['id'], $this->session->userdata('trans_id'));
                 array_push($val['display'][$j], $hold);
                 $j+=1;
             }
             $val['total'] = $this->total($val['display']);
             $val['budget'] = $this->remaining($val);
             // getting all expenses under the current user
-            $val['transaction'] = $this->expense->get_transaction($this->session->userdata('user_id'));
+            $val['transaction'] = $this->expense->get_transaction($this->session->userdata('user_id'),  $this->session->userdata('trans_id'));
             $this->load->view("pages/".$page, $val);
         }else
-            $this->load->view("pages/".$page, $val); 
+            $this->load->view("pages/".$page); 
         $this->load->view("template/footer.php");
     }
 
@@ -64,5 +66,13 @@ class Pages extends CI_Controller {
             $det['margin'] = 4;
         }
         return $det; 
+    }
+
+    public function deft($arr, $id){
+        foreach ($arr as $key => $value){
+            if ($value['id'] == $id){
+                return $value;
+            }
+        }
     }
 }

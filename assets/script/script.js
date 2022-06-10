@@ -15,11 +15,36 @@ function edit(id){
 
 document.querySelector(".Cadd").addEventListener("click", () => {
   document.querySelector("#InputModalTitleLabel").innerHTML = "Create Category";
+  document.querySelector("#label_Cat").innerHTML = "Name of category";
+  document.getElementById("label_Budget").hidden = false;
+  document.getElementById("Budget").hidden = false;
+  document.getElementById("Budget").required = true;
 
-  document.querySelector("#CategoryName").value = "";
-  document.querySelector("#Budget").value = "";
-  document.querySelector("#CId").value = "";
+  document.getElementById("label_Radio").hidden = true;
+  document.getElementById("inlineRadio1").hidden = true;
+  document.getElementById("inlineRadio2").hidden = true;
+  document.getElementById("label_yes").hidden = true;
+  document.getElementById("label_no").hidden = true;
+  document.querySelector("#btn").innerHTML = "Save Category";
+  document.querySelector("#CForm").action = "Category/input";
 });
+
+function add_trans(){
+  document.querySelector("#InputModalTitleLabel").innerHTML = "Create new transaction";
+  document.querySelector("#label_Cat").innerHTML = "Name of new transaction";
+  document.querySelector("#btn").innerHTML = "Save Transaction";
+  document.getElementById("label_Budget").hidden = true;
+  document.getElementById("Budget").hidden = true;
+  document.getElementById("Budget").required = false;
+
+  document.getElementById("label_Radio").hidden = false;
+  document.getElementById("inlineRadio1").hidden = false;
+  document.getElementById("inlineRadio2").hidden = false;
+  document.getElementById("label_yes").hidden = false;
+  document.getElementById("label_no").hidden = false;
+
+  document.querySelector("#CForm").action = "Transaction/input";
+}
 
 function exp(id){
   var id = document.querySelector("#E"+id).getAttribute("data-id");
@@ -65,4 +90,27 @@ function EDel(id){
   document.querySelector("#EId").value = Cid;
   document.querySelector("#DelModalTitleLabel").innerHTML = "Would you like to delete " + name + " from the list?";
   document.querySelector("#EForm").action = "Ddelete/"+id;
+}
+
+// For account settings
+function enable(){
+  document.getElementById("close").disabled = false;
+  document.getElementById("cancel").disabled = false;
+  document.getElementById("save").disabled = false;
+  document.getElementById("image").disabled = false;
+  document.getElementById("confirm").disabled = false;
+  document.getElementById("userName").readOnly = false;
+  document.getElementById("email").readOnly = false;
+  document.getElementById("income").readOnly = false;
+}
+
+function disable(){
+  document.getElementById("close").disabled = true;
+  document.getElementById("cancel").disabled = true;
+  document.getElementById("save").disabled = true;
+  document.getElementById("image").disabled = true;
+  document.getElementById("confirm").disabled = true;
+  document.getElementById("userName").readOnly = true;
+  document.getElementById("email").readOnly = true;
+  document.getElementById("income").readOnly = true;
 }
