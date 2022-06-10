@@ -6,7 +6,7 @@ class Transaction_model extends CI_Model{
     public function add($data) {
         if ($this->db->insert('transaction', $data)) {
             // return $this->db->insert_id(); returns last id generated
-            return true;
+            return $this->db->insert_id();;
         } else {
             return false;
         }
@@ -21,16 +21,8 @@ class Transaction_model extends CI_Model{
         }
     }
 
-    public function get_row($id){
-        $this->db->select('*');
-        $this->db->from('transaction');
-        if($this->db->where('id =', $id)){
-            $objQuery = $this->db->get();
-            return $objQuery->result_array();
-        }
-    }
-
     public function update($Uid, $id, $data){
+        $this->db->select('set_default');
         $this->db->where('id =', $id );
         $this->db->where('user_id =', $Uid );
         if( $this->db->update('transaction', $data))

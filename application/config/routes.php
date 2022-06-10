@@ -11,6 +11,9 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['pages/Transaction/input'] = "Transaction/input";
 $route['change/(:any)'] = "Transaction/change/$1";
+$route['Transaction/edit'] = "Transaction/edit";
+$route['Transaction/delete'] = "Transaction/delete";
+
 // Category
 $route["Category/delete/(:any)"]="Category/delete/$1";
 

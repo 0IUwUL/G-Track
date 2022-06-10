@@ -25,12 +25,23 @@
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
                                     <?php foreach ($tran as $listed){ ?>
-                                    <li id = "T<?php echo $listed['id']; ?>"><a class="Tbtn dropdown-item" role="button" href='<?php echo base_url(); ?>change/<?php echo $listed['id']; ?>'><?php echo $listed['title']; ?></a></li>
+                                    <li id = "T<?php echo $listed['id']; ?>">
+                                        <a class="dropdown-item" role="button" href='<?php echo base_url(); ?>change/<?php echo $listed['id']; ?>'><?php echo $listed['title']; ?></a></li>
                                     <?php } ?>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#InputModal" onclick="add_trans();">
-                                            Add new transaction <i class="bi bi-file-plus"></i>
+                                            Add new transaction <i class="bi bi-file-plus h5 text-primary"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Transaction">
+                                            Edit transaction <i class="bi bi-pen-fill h5 text-warning"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#TransactionD">
+                                            Delete transaction <i class="bi bi-trash2-fill h5 text-danger"></i>
                                         </button>
                                     </li>
                                 </ul>
@@ -173,6 +184,75 @@
                 <input type="hidden" id="EId" name="EId" value="">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Transaction Modal -->
+<div class="modal fade" id="Transaction" tabindex="-1" aria-labelledby="TransactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-color">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="TransactionModalTitleLabel">Edit Transaction</h5>
+            </div>
+            <div class="modal-body">
+            <?php echo form_open("Transaction/edit") ;?>
+                                    
+            <div class="col-md-7">
+                <label class="form-label">Chooose transaction to be edited: </label>
+                <select class="form-select" name="transaction" required>
+                    <option value="">None</option>
+                    <?php foreach ($tran as $listed){ ?>
+                        <option value="<?php echo $listed['id']; ?>"><?php echo $listed['title']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="my-3">
+                        <label for="Budget" class="form-label" id= "label_Transaction">Name of Transaction</label>
+                        <input type="text" class="form-control" id="input_Transaction" name = "title_transaction" required>
+                    </div>
+                    <label for="Default_Transaction" class="form-label mr-3" id= "edit_Radio">Would you like to set this as a default transaction? </label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadioedit1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1" id = "edit_yes">Yes</label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadioedit2" value="0">
+                        <label class="form-check-label" for="inlineRadio1" id = "edit_no">No</label>
+            </div>
+            <div class="modal-footer mt-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Transaction delete Modal -->
+<div class="modal fade" id="TransactionD" tabindex="-1" aria-labelledby="TransactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-color">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="TransactionModalTitleLabel">Edit Transaction</h5>
+            </div>
+            <div class="modal-body">
+            <?php echo form_open("Transaction/delete") ;?>
+                                    
+            <div class="col-md-7">
+                <label class="form-label">Chooose transaction to be deleted: </label>
+                <select class="form-select" name="transaction" required>
+                    <option value="" onchange="activate();">None</option>
+                    <?php foreach ($tran as $listed){ ?>
+                        <option value="<?php echo $listed['id']; ?>"><?php echo $listed['title']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="modal-footer d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             </div>
         </div>
