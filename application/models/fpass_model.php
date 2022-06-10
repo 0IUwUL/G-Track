@@ -44,7 +44,7 @@ class fpass_model extends CI_Model{
         $query = $this->db->get('user');
         if ($query->num_rows() > 0) { // find user email in db
           $q = $query->row_array();
-          $result2 = $q['code'];
+          $result2 = $q['passcode'];
           $result3 = $q['codetime'];
           $datetimetoday = date('Y-m-d H:i:s', time());
     
@@ -62,5 +62,13 @@ class fpass_model extends CI_Model{
         }
         else
           return false; // not in db
+      }
+      public function get_code($passcode){
+        $query = $this->db->get_where("user",array("passcode" => $passcode));
+         return $query->row();
+      }
+      public function change_pass($email,$data) {
+        $query = $this->db->where('email', $email);
+        return $this->db->update('user', $data);
       }
 }

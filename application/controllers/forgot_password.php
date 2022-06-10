@@ -10,12 +10,13 @@ class forgot_password extends CI_Controller{
     
     public function forgot(){
         if(is_null($this->input->post('email'))){
-            redirect('pages/forgot_pass');
+            redirect('pages/view/forgot_pass');
         }
         else{
             $this->form_validation->set_rules('email','Email','required|callback_email_verif');
+            // var_dump($this->input->post('email'));
             if($this->form_validation->run()===false){
-            $this->load->view("pages/forgot_pass",$this->data);
+                $this->load->view("pages/view/forgot_pass",$this->data);
             }
             else{
                 $passcode = random_int(0,999999);
@@ -31,9 +32,14 @@ class forgot_password extends CI_Controller{
                 'body' => ' You have 15 minutes before your pc self destructs. jokes aside, please submit the code beforehand.'
                  );
                 $this->send($email,'template/changePass_Email',$data);
+                $newdata=array('email'=>$email);
+                $this->session->set_userdata($newdata);
                 // if(($this->session->userdata('lock_id') != 1)){
                 //     $this->session->unset_userdata(array('username','user_id','email','success','logged_in'));
                 // }
+                $this->load->view("template/header");
+                $this->load->view("pages/forgot_pass_verify");
+                $this->load->view("template/footer");
             }
         }
     }
@@ -90,7 +96,7 @@ class forgot_password extends CI_Controller{
         
         // If true, inform the user in verify.php
         if ($query){
-        $this->load->view("pages/forgot_pass_verify");
+        $this->load->view("pages/view/forgot_pass_verify");
         $this->load->view("template/footer");  
         
         }else {
@@ -100,20 +106,21 @@ class forgot_password extends CI_Controller{
 
     public function pass_verify(){
         $email = $this->session->userdata('email');
-        if($this->session->userdata('email') == NULL){ //if user forces to visit
-            redirect("pages/forgot_pass");
-        }
-        else{
+        // var_dump($email); die();
+        // if($this->session->userdata('email') == NULL){ //if user forces to visit
+        //     redirect("pages/view/forgot_pass");
+        // }
+        // else{
             $passcode = $this->input->post('passcode');
             //check if same passcode
             $query= $this->forgot_password->check_passcode($email, $passcode); 
 
             // If true, direct to change password
             if ($query){
-                $this->session->set_userdata(array('lock_id'=>1));
-               
+                // $this->session->set_userdata(array('lock_id'=>1));
+                $this->load->view("template/header");
                 $this->load->view("pages/forgot_pass_change");
-              
+                $this->load->view("template/footer");
             }
             else{
                 // $this->data["title"] = "Wrong passcode";
@@ -121,19 +128,22 @@ class forgot_password extends CI_Controller{
                 $this->form_validation->set_rules("forgot_pass_verify","Code","callback_checkCode");
                 if($this->form_validation->run() == false){
                     
-                    $this->load->view("pages/forgot_pass",$this->data);
+                    $this->load->view("pages/view/forgot_pass",$this->data);
                     
                 }
                 else{
-                    redirect("forgot_password/pass_verify");
+                    $this->load->view("template/header");
+                    $this->load->view("pages/forgot_pass_change");
+                    $this->load->view("template/footer");
+                    // redirect("forgot_password/forgot_pass");
                 }
                
             }
-        }
+        // }
         
     }
     public function checkcode($passcode){
-        if(is_null($this->ResetPassword->get_code($passcode))){
+        if(is_null($this->fpass-model->get_code($passcode))){
             $this->form_validation->set_message('checkcode', 'Wrong passcode');
             return false;
         }
@@ -145,8 +155,9 @@ class forgot_password extends CI_Controller{
         $email = $this->session->userdata('email');
         $this->form_validation->set_rules('password_1','Password','required');
         $this->form_validation->set_rules('password_2', 'Confirm Password', 'required|matches[password_1]');
+        // $this->form_validation->set_rules('passcode','Passcode','required');
             if($this->form_validation->run()===false){       
-                    $this->load->view("pages/forgot_pass");     
+                    $this->load->view("pages/view/forgot_pass");     
                 }
             else{
                 $hashed_pass = password_hash($this->input->post("password_1"), PASSWORD_DEFAULT);
@@ -154,8 +165,10 @@ class forgot_password extends CI_Controller{
                               'password' => $hashed_pass,
                             );
                 $query = $this->forgot_password->change_pass($email,$data);
-                if ($query){    
-                    $this->load->view("pages/passwordverified");   
+                if ($query){
+                    $this->load->view('template/header');    
+                    $this->load->view("pages/verify");
+                    $this->load->view('template/footer');   
                         $this->session->sess_destroy();
                         }
                 }
