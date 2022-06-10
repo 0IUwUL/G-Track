@@ -5,7 +5,7 @@ class Reports extends CI_Controller {
     
     public function view(){
        
-        $query = $this->category->get();
+        $query = $this->category->get($_SESSION['user_id'],$_SESSION['trans_id']);
        
         $reports = array(['Category', 'Expense']); // Header for the array
         foreach($query as $arr){

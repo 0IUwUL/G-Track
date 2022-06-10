@@ -19,8 +19,32 @@
                     <div class = "status shadow mb-5 rounded">
                         <div class="row justify-content-center text-center mt-3 h5 text-wrap">
                             Business Transactions
-                            <div class = "row justify-content-center mt-5 h5 text-secondary">
-                                (Default transaction)
+                            <div class = "dropwdown-center justify-content-center mt-5 h5 text-secondary">
+                                <button class="btn btn-info dropdown-toggle p-2" type="button" id="dropdownCenterBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <strong><?php echo $default['title']; ?></strong>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownCenterBtn">
+                                    <?php foreach ($tran as $listed){ ?>
+                                    <li id = "T<?php echo $listed['id']; ?>">
+                                        <a class="dropdown-item" role="button" href='<?php echo base_url(); ?>change/<?php echo $listed['id']; ?>'><?php echo $listed['title']; ?></a></li>
+                                    <?php } ?>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#InputModal" onclick="add_trans();">
+                                            Add new transaction <i class="bi bi-file-plus h5 text-primary"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Transaction">
+                                            Edit transaction <i class="bi bi-pen-fill h5 text-warning"></i>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#TransactionD">
+                                            Delete transaction <i class="bi bi-trash2-fill h5 text-danger"></i>
+                                        </button>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -125,19 +149,23 @@
             <div class="modal-body">
                 <?php echo form_open("Category/input", 'id = "CForm" name = "CForm"') ;?>
                     <div class="mb-3">
-                        <label for="CategoryName" class="form-label">Category Name</label>
+                        <label for="CategoryName" class="form-label" id= "label_Cat">Category Name</label>
                         <input type="text" class="form-control" id="CategoryName" aria-describedby="CategoryNameHelp" name = "title" required>
                     </div>
                     <div class="mb-3">
-                        <label for="Budget" class="form-label">Budget</label>
-                        <input type="number" class="form-control" id="Budget" name = "budget" required>
+                        <label for="Budget" class="form-label" id= "label_Budget" hidden>Budget</label>
+                        <input type="number" class="form-control" id="Budget" name = "budget" hidden required>
                     </div>
-                    <input type="hidden" id="CId" name="CId" value="">
+                    <label for="Default_Transaction" class="form-label mr-3" id= "label_Radio" hidden>Would you like to set this as a default transaction? </label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1" value="1" hidden>
+                        <label class="form-check-label" for="inlineRadio1" id = "label_yes" hidden>Yes</label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio2" value="0" hidden checked>
+                        <label class="form-check-label" for="inlineRadio1" id = "label_no" hidden>No</label>
                 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save Category</button>
+                <button type="submit" class="btn btn-primary" id = "btn">Save Category</button>
             </div>
                 </form>
         </div>
@@ -156,6 +184,75 @@
                 <input type="hidden" id="EId" name="EId" value="">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Continue</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Transaction Modal -->
+<div class="modal fade" id="Transaction" tabindex="-1" aria-labelledby="TransactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-color">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="TransactionModalTitleLabel">Edit Transaction</h5>
+            </div>
+            <div class="modal-body">
+            <?php echo form_open("Transaction/edit") ;?>
+                                    
+            <div class="col-md-7">
+                <label class="form-label">Chooose transaction to be edited: </label>
+                <select class="form-select" name="transaction" required>
+                    <option value="">None</option>
+                    <?php foreach ($tran as $listed){ ?>
+                        <option value="<?php echo $listed['id']; ?>"><?php echo $listed['title']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+
+            <div class="my-3">
+                        <label for="Budget" class="form-label" id= "label_Transaction">Name of Transaction</label>
+                        <input type="text" class="form-control" id="input_Transaction" name = "title_transaction" required>
+                    </div>
+                    <label for="Default_Transaction" class="form-label mr-3" id= "edit_Radio">Would you like to set this as a default transaction? </label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadioedit1" value="1" required>
+                        <label class="form-check-label" for="inlineRadio1" id = "edit_yes">Yes</label>
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadioedit2" value="0">
+                        <label class="form-check-label" for="inlineRadio1" id = "edit_no">No</label>
+            </div>
+            <div class="modal-footer mt-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Transaction delete Modal -->
+<div class="modal fade" id="TransactionD" tabindex="-1" aria-labelledby="TransactionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-color">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+            <h5 class="modal-title" id="TransactionModalTitleLabel">Edit Transaction</h5>
+            </div>
+            <div class="modal-body">
+            <?php echo form_open("Transaction/delete") ;?>
+                                    
+            <div class="col-md-7">
+                <label class="form-label">Chooose transaction to be deleted: </label>
+                <select class="form-select" name="transaction" required>
+                    <option value="" onchange="activate();">None</option>
+                    <?php foreach ($tran as $listed){ ?>
+                        <option value="<?php echo $listed['id']; ?>"><?php echo $listed['title']; ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="modal-footer d-flex justify-content-end">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             </div>
         </div>

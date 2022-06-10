@@ -134,4 +134,5 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array('registration_model' => 'registration', 'login_model' => 'login',
                             'category_model' => 'category','changepass_model' => 'changepass',
-                            'expense_model' => 'expense', 'account_settings_model' => 'editaccount');
+                            'expense_model' => 'expense', 'account_settings_model' => 'editaccount',
+                            'transaction_model' => 'transaction');

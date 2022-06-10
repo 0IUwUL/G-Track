@@ -9,6 +9,7 @@ class Category extends CI_Controller {
             'user_id'  => $this->session->userdata('user_id'),
             'title'  =>  $this->input->post('title'),
             'budget'  =>  $this->input->post('budget'),
+            'trans_id' => $this->session->userdata('trans_id'),
         );
 
         $status = $this->category->C_category($category_data);

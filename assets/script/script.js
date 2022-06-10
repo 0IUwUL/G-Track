@@ -15,11 +15,36 @@ function edit(id){
 
 document.querySelector(".Cadd").addEventListener("click", () => {
   document.querySelector("#InputModalTitleLabel").innerHTML = "Create Category";
+  document.querySelector("#label_Cat").innerHTML = "Name of category";
+  document.getElementById("label_Budget").hidden = false;
+  document.getElementById("Budget").hidden = false;
+  document.getElementById("Budget").required = true;
 
-  document.querySelector("#CategoryName").value = "";
-  document.querySelector("#Budget").value = "";
-  document.querySelector("#CId").value = "";
+  document.getElementById("label_Radio").hidden = true;
+  document.getElementById("inlineRadio1").hidden = true;
+  document.getElementById("inlineRadio2").hidden = true;
+  document.getElementById("label_yes").hidden = true;
+  document.getElementById("label_no").hidden = true;
+  document.querySelector("#btn").innerHTML = "Save Category";
+  document.querySelector("#CForm").action = "Category/input";
 });
+
+function add_trans(){
+  document.querySelector("#InputModalTitleLabel").innerHTML = "Create new transaction";
+  document.querySelector("#label_Cat").innerHTML = "Name of new transaction";
+  document.querySelector("#btn").innerHTML = "Save Transaction";
+  document.getElementById("label_Budget").hidden = true;
+  document.getElementById("Budget").hidden = true;
+  document.getElementById("Budget").required = false;
+
+  document.getElementById("label_Radio").hidden = false;
+  document.getElementById("inlineRadio1").hidden = false;
+  document.getElementById("inlineRadio2").hidden = false;
+  document.getElementById("label_yes").hidden = false;
+  document.getElementById("label_no").hidden = false;
+
+  document.querySelector("#CForm").action = "Transaction/input";
+}
 
 function exp(id){
   var id = document.querySelector("#E"+id).getAttribute("data-id");
