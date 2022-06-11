@@ -29,7 +29,7 @@ class forgot_password extends CI_Controller{
                 'header' => 'Account Password Reset:',
                 'user' => $user,
                'passcode' => $passcode,
-                'body' => ' You have 15 minutes before your pc self destructs. jokes aside, please submit the code beforehand.'
+                'body' => ' You have 15 minutes before verification code expires. Please submit the code beforehand.'
                  );
                 $this->send($email,'template/changePass_Email',$data);
                 $newdata=array('email'=>$email);
@@ -46,16 +46,16 @@ class forgot_password extends CI_Controller{
 
     public function send($email,$template,$data){
         $to = $email;
-        $subject = "You Forgot Your Password";
-        $from = "thinklikblog@gmail.com";
-        $password = 'qavmcxnyieabusoz';
+        $subject = "Verification Code for G-Track";
+        $from = "emailgtrack@gmail.com";
+        $password = 'fthxjwlqcsagnqwl';
 
         $config = array(
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.gmail.com',
             'smtp_port' => '465',
             'smtp_timeout' => '60',
-            'smtp_user' => 'thinklikblog@gmail.com',
+            'smtp_user' => 'emailgtrack@gmail.com',
             'smtp_pass' => $password,
             'charset' => 'utf-8',
             'newline' => "\r\n",

@@ -40,7 +40,7 @@ class Transaction extends CI_Controller {
         $val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
         if($this->input->post('radio')){
             
-            $change = $this->order($val['tran'], $status);
+            $change = $this->order($val['tran'], $this->input->post('transaction'));
             $data = array(
                 'set_default' => 0
             );
@@ -48,7 +48,7 @@ class Transaction extends CI_Controller {
             if($stat){
                 $Sstat = $this->transaction->update($this->session->userdata('user_id'), $this->input->post('transaction'), $transaction_data);
                 if ($Sstat)
-                    $this->change($status);
+                    $this->change($this->input->post('transaction'));
                 else
                 show_error("Database error", 0, $heading = 'An Error Was Encountered');
             }else
@@ -72,7 +72,8 @@ class Transaction extends CI_Controller {
 
     public function delete(){
         $val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
-        if($this->check($val['tran'], 'delete')){
+        $val['check'] = $this->input->post('transaction');
+        if($this->check($val, 'delete')){
             $status = $this->transaction->delete($this->input->post('transaction'));
 
             if($status)
@@ -106,25 +107,36 @@ class Transaction extends CI_Controller {
         return $sub;
     }
 
-    public function order_check($arr){
-        foreach ($arr as $list){
-            if($list['set_default'] == 1){
-                break;
-                return true;
-            }
+    public function order_check($arr, $mode){
+        if($mode =='edit'){
+            foreach ($arr as $list){
+                if($list['set_default'] == 1){
+                    break;
+                    return true;
+                }
             return false;
-                
+            }
+        }else{
+            foreach ($arr['tran'] as $list){
+                if($list['set_default'] == 1 && $list['id'] == $arr['check']){
+                    return true;
+                }
+                return false;
+            }
         }
+        
     }
 
     public function check($arr, $mode){
         if($mode == 'delete'){
-            if(count($arr)==1){
+            if(count($arr)==1)
                 return false;
-            }else
+            elseif ($this->order_check($arr, 'delete'))
+                return false;
+            else
                 return true;
         }else{
-            if($this->order_check($arr))
+            if($this->order_check($arr, 'edit'))
                 return true;
             else
                 return false;

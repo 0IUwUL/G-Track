@@ -100,8 +100,8 @@ class Sign_Up extends CI_Controller {
     {
         $to =  $email;
         $subject = 'Email verification';
-        $from = 'thinklikblog@gmail.com';
-        $password = 'qavmcxnyieabusoz'; // make it env file in the future
+        $from = 'emailgtrack@gmail.com';
+        $password = 'fthxjwlqcsagnqwl'; // make it env file in the future
 
         // Config setup
         $config = array(
@@ -109,7 +109,7 @@ class Sign_Up extends CI_Controller {
             'smtp_host' => 'ssl://smtp.gmail.com',
             'smtp_port' => '465',
             'smtp_timeout' => '60',
-            'smtp_user' => 'thinklikblog@gmail.com',
+            'smtp_user' => 'emailgtrack@gmail.com',
             'smtp_pass' => $password,
             'charset' => 'utf-8',
             'newline' => "\r\n",
