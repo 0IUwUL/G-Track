@@ -100,8 +100,8 @@ class Sign_Up extends CI_Controller {
     {
         $to =  $email;
         $subject = 'Email verification';
-        $from = 'thinklikblog@gmail.com';
-        $password = 'qavmcxnyieabusoz'; // make it env file in the future
+        $from = 'emailgtrack@gmail.com';
+        $password = 'fthxjwlqcsagnqwl'; // make it env file in the future
 
         // Config setup
         $config = array(
@@ -109,7 +109,7 @@ class Sign_Up extends CI_Controller {
             'smtp_host' => 'ssl://smtp.gmail.com',
             'smtp_port' => '465',
             'smtp_timeout' => '60',
-            'smtp_user' => 'thinklikblog@gmail.com',
+            'smtp_user' => 'emailgtrack@gmail.com',
             'smtp_pass' => $password,
             'charset' => 'utf-8',
             'newline' => "\r\n",
@@ -148,11 +148,23 @@ class Sign_Up extends CI_Controller {
                 'set_default' => 1
             );
             $this->transaction->add($data);
+            $val['tran'] = $this->transaction->get($this->session->userdata('user_id'));
+            $val['default'] = $this->deft($val['tran']);
+            $this->session->set_userdata('trans_id', $val['default']['id']);
+
         $this->load->view("pages/verified");
         $this->load->view("template/footer");  
         
         }else {
             echo "Invalid URL";
+        }
+    }
+
+    public function deft($arr){
+        foreach ($arr as $key => $value){
+            if ($value['set_default'] == 1){
+                return $value;
+            }
         }
     }
 }
