@@ -28,7 +28,6 @@ class Registration_model extends CI_Model{
         }
         return false; 
     }
-
     // UPDATE ACTIVE STATUS OF USER
     public function activate_acc($username,$code,$data){
         $this->db->select('*');
