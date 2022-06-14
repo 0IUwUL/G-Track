@@ -16,7 +16,9 @@ class forgot_password extends CI_Controller{
             $this->form_validation->set_rules('email','Email','required|callback_email_verif');
             // var_dump($this->input->post('email'));
             if($this->form_validation->run()===false){
-                $this->load->view("pages/view/forgot_pass",$this->data);
+                $this->load->view("template/header");
+                $this->load->view("pages/forgot_pass");
+                $this->load->view('template/footer');
             }
             else{
                 $passcode = random_int(0,999999);
@@ -156,8 +158,10 @@ class forgot_password extends CI_Controller{
         $this->form_validation->set_rules('password_1','Password','required');
         $this->form_validation->set_rules('password_2', 'Confirm Password', 'required|matches[password_1]');
         // $this->form_validation->set_rules('passcode','Passcode','required');
-            if($this->form_validation->run()===false){       
-                    $this->load->view("pages/view/forgot_pass");     
+            if($this->form_validation->run()===false){
+                    $this->load->view('template/header');        
+                    $this->load->view("pages/forgot_pass");
+                    $this->load->view('template/footer');
                 }
             else{
                 $hashed_pass = password_hash($this->input->post("password_1"), PASSWORD_DEFAULT);
