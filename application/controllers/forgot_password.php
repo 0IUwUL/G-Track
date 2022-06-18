@@ -98,7 +98,8 @@ class forgot_password extends CI_Controller{
         
         // If true, inform the user in verify.php
         if ($query){
-        $this->load->view("pages/view/forgot_pass_verify");
+        $this->load->view("template/header");  
+        $this->load->view("pages/forgot_pass_verify");
         $this->load->view("template/footer");  
         
         }else {
@@ -129,9 +130,9 @@ class forgot_password extends CI_Controller{
                 // 
                 $this->form_validation->set_rules("forgot_pass_verify","Code","callback_checkCode");
                 if($this->form_validation->run() == false){
-                    
-                    $this->load->view("pages/view/forgot_pass",$this->data);
-                    
+                    $this->load->view("template/header");
+                    $this->load->view("pages/forgot_pass",$this->data);
+                    $this->load->view("template/footer");
                 }
                 else{
                     $this->load->view("template/header");
@@ -145,7 +146,7 @@ class forgot_password extends CI_Controller{
         
     }
     public function checkcode($passcode){
-        if(is_null($this->fpass-model->get_code($passcode))){
+        if(is_null($this->forgot_password->get_code($passcode))){
             $this->form_validation->set_message('checkcode', 'Wrong passcode');
             return false;
         }
