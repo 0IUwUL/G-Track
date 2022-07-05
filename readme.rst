@@ -26,6 +26,7 @@ issues, as well as missing features.
 To run this application, it is important to install XAMPP to host a local
 web server to see the output of this system. In the installation of XAMPP,
 it is imperative to check the Apache and MySQL selection. 
+
 ************
 Setup
 ************
@@ -34,4 +35,4 @@ admin button along the row of MySQL create a database, name the database as
 'expense_tracker' then import the sql file in the database folder found in this
 system folder. 
 
-Now open a web browser and visit 'http://localhost/Expense_Tracker_Elec-4/'
+Now open a web browser and visit 'localhost/Expense_Tracker_Elec-4/'
