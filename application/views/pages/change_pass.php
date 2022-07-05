@@ -18,11 +18,11 @@
                             <div class="box col shadow mb-5 p-5 rounded">
                                 <?php echo form_open("C_Password/change_password");?>
                                     <div class="form-group">
-                                        <p style="margin:0; color: #628EFF; text-align:left"><strong>Change Password:</strong><p>
+                                        <p style="margin:0; color: #628EFF; text-align:left"><strong>Enter New Password:</strong><p>
                                         <input type="password" class="form-control" name="password_1" id="password_1" placeholder="Enter New Password" required>
                                     </div>
                                     <div class="form-group">
-                                        <p style="margin:0; color: #628EFF; text-align:left"><strong>New Password:</strong></p>
+                                        <p style="margin:0; color: #628EFF; text-align:left"><strong>Re Enter Password:</strong></p>
                                         <input type="password" class="form-control" name="password_2" id="password_2" placeholder="Confirm New Password" required>
                                     </div>
                                     <div class="row mt-5">
