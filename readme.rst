@@ -7,13 +7,6 @@ and allocate their money. It will help its user's to determine their important n
 prioritize it before their other expenses. Because not everyone can manage to budget and allocate their money.
 
 *******************
-Release Information
-*******************
-
-This repo contains in-development code for future releases. To download the
-latest stable release please visit https://github.com/0IUwUL/G-Track.git
-
-*******************
 Server Requirements
 *******************
 
