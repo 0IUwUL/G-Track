@@ -11,7 +11,7 @@ Release Information
 *******************
 
 This repo contains in-development code for future releases. To download the
-latest stable release please visit https://github.com/0IUwUL/Expense_Tracker_Elec-4.git
+latest stable release please visit https://github.com/0IUwUL/G-Track.git
 
 *******************
 Server Requirements
@@ -30,9 +30,11 @@ it is imperative to check the Apache and MySQL selection.
 ************
 Setup
 ************
-Visit the XAMPP control panel and start the Apache and MySQL. Click on the
-admin button along the row of MySQL create a database, name the database as
-'expense_tracker' then import the sql file in the database folder found in this
-system folder. 
-
-Now open a web browser and visit 'localhost/Expense_Tracker_Elec-4/'
+1. Git clone, through your preffered way, or download the repository as .zip.
+2. Move the folder onto the directory of the XAMPP **xampp/htdocs**
+3. Visit the XAMPP control panel and start the Apache and MySQL. 
+4. Click on the admin button along the row of MySQL.
+5. In the phpMyAdmin, create a database and name the database as 'expense_tracker'
+6. Import the sql file in the database folder found in this system folder. 
+7. Return to XAMPP control panel and click *start* on Apache and MySQL.
+8. Now open a web browser and visit 'localhost/G-Track/'
